@@ -1,32 +1,121 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casamento</title>
+    <title>Maria e Tiago</title>
+    <style>
+    body {
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        overflow-y: auto;
+        background-color: #f5f5f5;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    nav a {
+        display: block;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+    section {
+        margin-left: 220px;
+    }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #f5f5f5;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        nav a {
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Maria e Tiago, 25 de maio de 2024</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gift.html">Presentes</a></li>
-                <li><a href="details.html">Detalhes</a></li>
-                <li><a href="rsvp.html">RSVP</a></li>
 
-            </ul>
+        <nav>
+            <a href="index.html">25 de maio</a>
+            <a href="#Informacoesuteis">Informações úteis</a>
+            <a href="#gift">Lista</a>
+            <a href="rsvp.html">RSVP</a>
+
         </nav>
     </header>
 
     <section>
-        <h2>Bem-vindos ao nosso site de casamento!</h2>
-        <!-- Conteúdo da página inicial -->
+        <h2>Vamos casar!</h2>
+        <img src="wedding_photo.jpeg" alt="Fotografia">       
+        <p>Querida Família e Amigos,<br>
+            Estamos muito felizes com este dia que se aproxima e esperamos poder contar com todos para celebrarmos juntos!<br>
+            Vamos casar às 16h na Igreja Nossa Senhora da Piedade da Merceana seguindo-se a festa na Quinta dos Plátanos</p>
     </section>
 
+    <section id="Informacoesuteis">
+        <h2>Informações Úteis</h2>
+        <h3>Como chegar</h3>
+        <p>Igreja: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana <a href="https://www.exemplo.com">(mapa)</a><br>
+        <h3>Dress Code:</h3>
+        <p>Fato escuro<br>
+    </section>
+
+    <section id="gift">
+        <h2>Informações Úteis</h2>
+        <h3>Como chegar</h3>
+        <p>Igreja<br>
+    </section>
+    
+    
+
     <footer>
-        <p>&copy; 2023 Nome e Nome</p>
+        <p>&copy; 2024 25MAIO</p>
     </footer>
 </body>
 </html>
