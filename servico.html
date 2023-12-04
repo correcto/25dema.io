@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo de Galeria de Imagens Clicáveis</title>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery-item {
+            margin: 10px;
+            text-align: center;
+        }
+        .gallery-item a {
+            display: inline-block; /* Faz o link se ajustar ao tamanho da imagem */
+            margin-bottom: 5px; /* Espaço entre a imagem e o texto */
+        }
+        .gallery-item img {
+            width: 100%; /* ou um valor fixo, por exemplo, 300px */
+            height: auto;
+            border: 1px solid #ccc;
+        }
+        .gallery-item p {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <!-- Primeiro item -->
+        <div class="gallery-item">
+            <a href="pagina-de-destino.html">
+                <img src="caminho-para-imagem-1.jpg" alt="Descrição da Imagem 1">
+            </a>
+            <p>Texto abaixo da imagem 1</p>
+        </div>
+        
+        <!-- Segundo item -->
+        <div class="gallery-item">
+            <a href="pagina-de-destino.html">
+                <img src="caminho-para-imagem-2.jpg" alt="Descrição da Imagem 2">
+            </a>
+            <p>Texto abaixo da imagem 2</p>
+        </div>
+        
+        <!-- Adicione mais itens conforme necessário -->
+    </div>
+</body>
+</html>
