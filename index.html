@@ -122,23 +122,34 @@
     </section>
     
     <section id="confpres">
+        <h2>Confirme a sua presença:</h2>
         <form>
+            <p>
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name" autocomplete="Nome Apelido" required>
-
+            </p>
+            
+            <p>
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" autocomplete="username@email.com" required>
-            
+            </p>
+
+            <p>
             <label for="email">Telefone:</label>
             <input type="text" id="telefone" name="telefone" autocomplete="915 555 555" required>
-
+            </p>
+            
+            <p>
             <label for="attendance">Confirmar Presença:</label>
             <select id="attendance" name="attendance" required>
                 <option value="yes">Sim, estarei lá!</option>
                 <option value="no">Infelizmente, não poderei comparecer.</option>
             </select>
-            
+            </p>
+
+            <p>
             <button type="submit">Enviar RSVP</button>
+            </p>
         </form>
     </section>
 
