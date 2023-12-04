@@ -97,8 +97,7 @@
             <a href="index.html">25 de maio</a>
             <a href="#Informacoesuteis">Informações úteis</a>
             <a href="#gift">Lista</a>
-            <a href="rsvp.html">RSVP</a>
-
+            <a href="#confpres">Confirmar Presença</a>
         </nav>
     </header>
 
@@ -107,15 +106,14 @@
         <img src="wedding_photo.jpeg" alt="Fotografia">       
         <p>Querida Família e Amigos,<br>
             Estamos muito felizes com este dia que se aproxima e esperamos poder contar com todos para celebrarmos juntos!<br>
-            Vamos casar às 16h na Igreja de Nossa Senhora da Piedade na Merceana seguindo-se a festa na Quinta dos Plátanos</p>
+            Vamos casar às 16h na Igreja Nossa Senhora da Piedade da Merceana seguindo-se a festa na Quinta dos Plátanos</p>
     </section>
 
     <section id="Informacoesuteis">
         <h2>Informações Úteis</h2>
         <h3>Como chegar</h3>
-        <p>Igreja: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana <a href="https://www.exemplo.com">(mapa)</a><br>
-        <h3>Dress Code:</h3>
-        <p>Fato escuro<br>
+        <p>Igreja: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank">(mapa)</a></p>
+        <h3>Dress Code: Fato Escuro</h3>
     </section>
 
     <section id="gift">
@@ -136,10 +134,40 @@
         </a>
     </section>
     
-    
+    <section id="confpres">
+        <h2>Confirme a sua presença:</h2>
+        <form>
+            <p>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" autocomplete="Nome Apelido" required>
+            </p>
+            
+            <p>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" autocomplete="username@email.com" required>
+            </p>
+
+            <p>
+            <label for="email">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" autocomplete="915 555 555" required>
+            </p>
+            
+            <p>
+            <label for="attendance">Confirmar Presença:</label>
+            <select id="attendance" name="attendance" required>
+                <option value="yes">Sim, estarei lá!</option>
+                <option value="no">Infelizmente, não poderei comparecer.</option>
+            </select>
+            </p>
+
+            <p>
+            <button type="submit">Enviar RSVP</button>
+            </p>
+        </form>
+    </section>
 
     <footer>
-        <p>&copy; 2024 25MAIO</p>
+        <p>&copy; 2023-2024 25maio Maria e Tiago - Todos os direitos reservados</p>
     </footer>
 </body>
 </html>
