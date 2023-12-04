@@ -97,7 +97,7 @@
             <a href="index.html">25 de maio</a>
             <a href="#Informacoesuteis">Informações úteis</a>
             <a href="#gift">Lista</a>
-            <a href="rsvp.html">RSVP</a>
+            <a href="#confpres">Confirmar Presença</a>
         </nav>
     </header>
 
@@ -112,20 +112,38 @@
     <section id="Informacoesuteis">
         <h2>Informações Úteis</h2>
         <h3>Como chegar</h3>
-        <p>Igreja: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9">(mapa)</a></p>
+        <p>Igreja: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank">(mapa)</a></p>
         <h3>Dress Code: Fato Escuro</h3>
     </section>
 
     <section id="gift">
-        <h2>Informações Úteis</h2>
-        <h3>Como chegar</h3>
-        <p>Igreja</p>
+        <h2>Lista de Casamento blablabla</h2>
+        <h3>[MARIA Põe código com os dois botões aqui]</h3>
     </section>
     
-    
+    <section id="confpres">
+        <form>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" autocomplete="Nome Apelido" required>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" autocomplete="username@email.com" required>
+            
+            <label for="email">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" autocomplete="915 555 555" required>
+
+            <label for="attendance">Confirmar Presença:</label>
+            <select id="attendance" name="attendance" required>
+                <option value="yes">Sim, estarei lá!</option>
+                <option value="no">Infelizmente, não poderei comparecer.</option>
+            </select>
+            
+            <button type="submit">Enviar RSVP</button>
+        </form>
+    </section>
 
     <footer>
-        <p>&copy; 2023-2024 25MAIO</p>
+        <p>&copy; 2023-2024 25maio Maria e Tiago - Todos os direitos reservados</p>
     </footer>
 </body>
 </html>
