@@ -29,7 +29,7 @@
         font-weight: bold;
     }
     section {
-        margin-left: 220px;
+        margin-left: 300px;
     }
 
         body {
@@ -44,9 +44,9 @@
 
         header {
             width: 100%;
-            background-color: #f5f5f5;
+            background-color: none;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
         }
 
         nav {
@@ -64,9 +64,7 @@
             font-size: 18px;
         }
 
-        section {
-            margin-top: 20px;
-        }
+
 
         section img {
             max-width: 100%;
@@ -88,6 +86,27 @@
             cursor: pointer;
         }
 
+        .subsecao .conteudo {
+            height: auto; /* Altura inicial */
+            overflow: hidden; /* Esconde o conteúdo extra */
+            text-align: left;
+        }
+        
+        .subsecao.expandida .conteudo {
+            height: auto; /* Expande para mostrar todo o conteúdo */
+        }
+
+        .toggle {
+            cursor: pointer;
+            font-size: 1.2em;
+            background: none;
+            border: none;
+            padding: 0;
+            margin-left: 10px;
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -105,17 +124,33 @@
         <h2>Vamos casar!</h2>
         <img src="wedding_photo.jpeg" alt="Fotografia">       
         <p>Querida Família e Amigos,<br>
-            Estamos muito felizes com este dia que se aproxima e esperamos poder contar com todos para celebrarmos juntos!<br>
-            Vamos casar às 16h na Igreja Nossa Senhora da Piedade da Merceana seguindo-se a festa na Quinta dos Plátanos</p>
+            Estamos muito felizes com este dia que se aproxima e esperamos poder contar com todos para celebrarmos juntos!</p>
+        <p>Vamos casar dia 25 de maio às 16h na Igreja Nossa Senhora da Piedade da Merceana seguindo-se a festa na Quinta dos Plátanos.</p>
     </section>
 
     <section id="Informacoesuteis">
         <h2>Informações Úteis</h2>
-        <h3>Como chegar</h3>
-        <p>Igreja: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank">(mapa)</a></p>
-        <h3>Dress Code: Fato Escuro</h3>
+        <div class="subsecao">
+            <h3>Como chegar <button class="toggle">+</button></h3>
+            <p class="conteudo" style="display: none;">Igreja Nossa Senhora da Piedade da Merceana: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana             <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank">(mapa)</a>
+                </p>
+        </div>
+        <div class="subsecao">
+            <h3>Dress Code <button class="toggle">+</button></h3>
+            <p class="conteudo" style="display: none;">Fato Escuro                </p>
+        </div>
+        <!-- Repita para outras subseções -->
     </section>
-
+    
+    
+<!--
+   <section id="Informacoesuteis">
+       <h2>Informações Úteis</h2>
+       <h3>Como chegar</h3>
+       <p>Igreja Nossa Senhora da Piedade da Merceana: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank">(mapa)</a></p>
+       <h3>Dress Code: Fato Escuro</h3>
+   </section>
+-->
     <section id="gift">
         <h2>Lista</h2>
 
@@ -124,7 +159,7 @@
         Muito obrigado!</p>
     
         <!-- Caixa 1 -->
-        <a href="pagina1.html" class="caixa">
+        <a href="servico.html" class="caixa">
             <h3>CASA</h3>
         </a>
     
@@ -169,5 +204,20 @@
     <footer>
         <p>&copy; 2023-2024 25maio Maria e Tiago - Todos os direitos reservados</p>
     </footer>
+    <script>
+        document.querySelectorAll('.subsecao .toggle').forEach(button => {
+            button.addEventListener('click', function() {
+                var conteudo = this.parentElement.nextElementSibling;
+                if (conteudo.style.display === "none") {
+                    conteudo.style.display = "block";
+                    this.textContent = "-";
+                } else {
+                    conteudo.style.display = "none";
+                    this.textContent = "+";
+                }
+            });
+        });
+
+    </script>
 </body>
 </html>

@@ -2,17 +2,18 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Exemplo de Galeria de Imagens Clicáveis</title>
+    <title>Serviço</title>
     <style>
         .gallery {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: start-between;
             align-items: flex-start;
             margin: 0;
             padding: 0;
         }
         .gallery-item {
+            width: 33%;
             margin: 10px;
             text-align: center;
         }
@@ -21,9 +22,10 @@
             margin-bottom: 5px; /* Espaço entre a imagem e o texto */
         }
         .gallery-item img {
+            
             width: 100%; /* ou um valor fixo, por exemplo, 300px */
             height: auto;
-            border: 1px solid #ccc;
+            border: none;
         }
         .gallery-item p {
             margin: 0;
@@ -36,18 +38,20 @@
     <div class="gallery">
         <!-- Primeiro item -->
         <div class="gallery-item">
-            <a href="pagina-de-destino.html">
-                <img src="caminho-para-imagem-1.jpg" alt="Descrição da Imagem 1">
+            <a href="gift.html">
+                <img src="lista_images/prato_jantar.jpeg" alt="Prato de jantar">
             </a>
-            <p>Texto abaixo da imagem 1</p>
+            14 pratos de jantar<br>
+            182 euros
         </div>
         
         <!-- Segundo item -->
         <div class="gallery-item">
-            <a href="pagina-de-destino.html">
-                <img src="caminho-para-imagem-2.jpg" alt="Descrição da Imagem 2">
+            <a href="gift.html">
+                <img src="lista_images/prato_sopa.jpeg" alt="Prato de sopa">
             </a>
-            <p>Texto abaixo da imagem 2</p>
+            14 pratos de sopa<br>
+                175 euros
         </div>
         
         <!-- Adicione mais itens conforme necessário -->
