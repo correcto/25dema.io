@@ -7,15 +7,15 @@
         .gallery {
             display: flex;
             flex-wrap: wrap;
-            justify-content: start-between;
+            justify-content: space-between;
             align-items: flex-start;
             margin: 0;
             padding: 0;
         }
         .gallery-item {
-            width: 33%;
-            margin: 10px;
-            text-align: center;
+            width: 30%;
+            margin: 5px;
+            text-align: left;
         }
         .gallery-item a {
             display: inline-block; /* Faz o link se ajustar ao tamanho da imagem */
@@ -35,9 +35,13 @@
     </style>
 </head>
 <body>
+
+
+<!--    
+    
+    
     <div class="gallery">
-        <!-- Primeiro item -->
-        <div class="gallery-item">
+               <div class="gallery-item">
             <a href="gift.html">
                 <img src="lista_images/prato_jantar.jpeg" alt="Prato de jantar">
             </a>
@@ -45,7 +49,7 @@
             182 euros
         </div>
         
-        <!-- Segundo item -->
+       //-- Segundo item
         <div class="gallery-item">
             <a href="gift.html">
                 <img src="lista_images/prato_sopa.jpeg" alt="Prato de sopa">
@@ -54,7 +58,62 @@
                 175 euros
         </div>
         
-        <!-- Adicione mais itens conforme necessário -->
-    </div>
+    </div>-->
+
+    <div class="gallery"></div>
+
+    <script>
+        // Data array
+        const galleryItems = [
+          { link: 'gift.html', image: 'lista_images/prato_jantar.jpeg', description: '14 pratos de jantar', price: "182 euros" },
+          { link: 'gift.html', image: 'lista_images/prato_sopa.jpeg', description: '14 pratos de sopa', price: "175 euros" },
+          { link: 'gift.html', image: 'lista_images/prato_sobremesa.jpeg', description: '14 pratos de sobremesa', price: "154 euros" },
+          { link: 'gift.html', image: 'lista_images/assadeira.jpeg', description: '2 assadeiras', price: "91 euros" },
+          { link: 'gift.html', image: 'lista_images/saladeira.jpeg', description: '2 saladeiras', price: "75 euros" },
+          { link: 'gift.html', image: 'lista_images/travessa.jpeg', description: '2 travessas', price: "67 euros" },
+          { link: 'gift.html', image: 'lista_images/faqueiro.jpeg', description: 'faqueiro', price: '1000 euros - 10 frações de 100 euros'  },
+          { link: 'gift.html', image: 'lista_images/cadeiras.jpeg', description: '2x cadeira', price: '220 euros cada'  },
+          { link: 'gift.html', image: 'lista_images/sofa_cama.jpeg', description: 'sofa cama', price: '279 euros'},
+          { link: 'gift.html', image: 'lista_images/candeeiro.jpeg', description: 'Canddeiro de pé', price: '685 euros - '},
+
+  
+
+          // ... more items
+        ];
+      
+        // Function to create a gallery item
+        function createGalleryItem(item) {
+          // Create elements
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'gallery-item';
+      
+          const link = document.createElement('a');
+          link.href = item.link;
+      
+          const img = document.createElement('img');
+          img.src = item.image;
+      
+          const description = document.createElement('p');
+          description.textContent = item.description;
+      
+          const price = document.createElement('p');
+          price.textContent = item.price;
+      
+          // Append elements
+          link.appendChild(img);
+          itemDiv.appendChild(link);
+          itemDiv.appendChild(description);
+          itemDiv.appendChild(price);
+      
+          return itemDiv;
+        }
+      
+        // Insert items into the DOM
+        const galleryContainer = document.querySelector('.gallery');
+        galleryItems.forEach(item => {
+            galleryContainer.appendChild(createGalleryItem(item));
+        });
+      </script>
+      
 </body>
 </html>
