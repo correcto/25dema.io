@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maria e Tiago</title>
     <style>
-    body {
-        display: flex;
-        margin: 0;
-        padding: 0;
-    }
+
     nav {
         position: fixed;
         top: 0;
@@ -20,90 +16,113 @@
         background-color: #f5f5f5;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
     }
+    
     nav a {
         display: block;
         margin-bottom: 10px;
         text-decoration: none;
         color: #333;
         font-weight: bold;
+        font-size: 18px;
+
     }
-    section {
-        margin-left: 300px;
+    
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        header {
-            width: 100%;
-            background-color: none;
-            padding: 20px;
-            box-shadow: none;
-        }
-
-        nav {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 20px;
-        }
-
-        nav a {
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 18px;
-        }
+    header {
+        width: 100%;
+        background-color: none;
+        padding: 20px;
+        box-shadow: none;
+    }
 
 
+    section img {
+        max-width: 100%;
+        height: auto;
+    }
 
-        section img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        footer {
-            margin-top: 20px;
-        }
+    footer {
+        margin-top: 20px;
+    }
 
 
-        .caixa {
-            display: inline-block;
-            width: 30%;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .subsecao .conteudo {
-            height: auto; /* Altura inicial */
-            overflow: hidden; /* Esconde o conteúdo extra */
-            text-align: left;
+    .caixa {
+        display: inline-block;
+        width: 30%;
+        /*border: 1px solid #ccc;*/
+        background-color: #f5f5f5;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .subsecao .conteudo {
+        height: auto; /* Altura inicial */
+        overflow: hidden; /* Esconde o conteúdo extra */
+        text-align: left;
+    }
+    
+    .subsecao.expandida .conteudo {
+        height: auto; /* Expande para mostrar todo o conteúdo */
+    }
+    .toggle {
+        cursor: pointer;
+        font-size: 1.2em;
+        background: none;
+        border: none;
+        padding: 0;
+        margin-left: 10px;
+    }
+        
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        /* Additional styling for the icon */
+    }
+    
+    /* Mobile view */
+    
+    @media screen and (max-width: 768px) 
+    {
+        .hamburger {
+            display: block;
         }
         
-        .subsecao.expandida .conteudo {
-            height: auto; /* Expande para mostrar todo o conteúdo */
+        nav {
+            position: fixed;
+            top: 0;
+            left: -200px; /* Start off-screen */
+            width: 200px;
+            height: 100vh;
+            /* Rest of your styles */
         }
+        
+        section{
+            margin-left: 50px;
+        }
+        /* When menu is active */
+        
+        .active {
+            left: 0; /* Bring on-screen */
+        }
+    }
 
-        .toggle {
-            cursor: pointer;
-            font-size: 1.2em;
-            background: none;
-            border: none;
-            padding: 0;
-            margin-left: 10px;
-        }
 
 
 
@@ -112,6 +131,7 @@
 <body>
     <header>
 
+        <div class="hamburger">&#9776; Menu</div>
         <nav>
             <a href="index.html">25 de maio</a>
             <a href="#Informacoesuteis">Informações úteis</a>
@@ -119,6 +139,7 @@
             <a href="#confpres">Confirmar Presença</a>
         </nav>
     </header>
+
 
     <section>
         <h2>Vamos casar!</h2>
@@ -207,6 +228,10 @@
                     this.textContent = "+";
                 }
             });
+        });
+
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
         });
 
     </script>
