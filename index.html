@@ -102,6 +102,11 @@
         font-size: 30px;
         cursor: pointer;
     }
+
+    .blur-content {
+        filter: blur(5px); /* Adjust the level of blur as needed */
+    }
+
     
     /* Mobile view */
     
@@ -239,34 +244,29 @@
             });
         });
 
-        // Abrir e Fechar o Menu Lateral com o Ícone do Hamburguer
+
+        // Abrir o Menu Lateral com o Ícone do Hamburguer
         document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
+            document.querySelector('nav').classList.add('active');
         });
 
-        // Função para Fechar o Menu
-        function closeMenu() {
-            document.querySelector('nav').classList.remove('active');
-        }
+        // Fechar o menu ao clicar em qualquer lugar
+        window.addEventListener('click', function(event) {
+            let nav = document.querySelector('nav');
 
-        // Adicionando evento de clique ao botão de fechar e aos links do menu
-        document.querySelector('.close-btn').addEventListener('click', closeMenu);
+            // Se o clique foi no hamburguer, não faz nada (já que o evento do hamburguer vai lidar com isso)
+            if (event.target.matches('.hamburger')) {
+                return;
+            }
         
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(event) {
-            // Fechar o menu antes de seguir o link de âncora
-                closeMenu();
-
-            // Opcional: para links de âncora na mesma página, retarde a navegação
-                if (this.getAttribute('href').startsWith('#')) {
-                    event.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    setTimeout(() => {
-                        window.location.hash = targetId;
-                    }, 300); // Ajuste o tempo conforme necessário
-                }
-            });
+            // Remove a classe 'active' do nav, fechando o menu
+            nav.classList.remove('active');
         });
+
+
+        
+
+
 
     </script>
 </body>
