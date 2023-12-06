@@ -102,17 +102,6 @@
         font-size: 30px;
         cursor: pointer;
     }
-
-@media screen and (max-width: 768px) {
-    .close-btn {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-}
-
-
     
     /* Mobile view */
     
@@ -155,7 +144,7 @@
 <body>
     <header>
 
-        <div class="hamburger">&#9776; Menu</div>
+        <div class="hamburger">&#9776; </div>
         <nav>
             <a href="index.html">25 de maio</a>
             <a href="#Informacoesuteis">Informações úteis</a>
@@ -241,27 +230,43 @@
         <p>&copy; 2023-2024 25maio Maria e Tiago - Todos os direitos reservados</p>
     </footer>
     <script>
+        // Expansão e Colapso de Subseções
         document.querySelectorAll('.subsecao .toggle').forEach(button => {
             button.addEventListener('click', function() {
                 var conteudo = this.parentElement.nextElementSibling;
-                if (conteudo.style.display === "none") {
-                    conteudo.style.display = "block";
-                    this.textContent = "-";
-                } else {
-                    conteudo.style.display = "none";
-                    this.textContent = "+";
-                }
+                conteudo.style.display = conteudo.style.display === "none" ? "block" : "none";
+                this.textContent = conteudo.style.display === "block" ? "-" : "+";
             });
         });
 
+        // Abrir e Fechar o Menu Lateral com o Ícone do Hamburguer
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('nav').classList.toggle('active');
         });
 
-        document.querySelector('.close-btn').addEventListener('click', function() {
+        // Função para Fechar o Menu
+        function closeMenu() {
             document.querySelector('nav').classList.remove('active');
-        });
+        }
 
+        // Adicionando evento de clique ao botão de fechar e aos links do menu
+        document.querySelector('.close-btn').addEventListener('click', closeMenu);
+        
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(event) {
+            // Fechar o menu antes de seguir o link de âncora
+                closeMenu();
+
+            // Opcional: para links de âncora na mesma página, retarde a navegação
+                if (this.getAttribute('href').startsWith('#')) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    setTimeout(() => {
+                        window.location.hash = targetId;
+                    }, 300); // Ajuste o tempo conforme necessário
+                }
+            });
+        });
 
     </script>
 </body>
