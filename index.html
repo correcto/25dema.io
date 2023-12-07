@@ -4,7 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maria e Tiago</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">c
+    <style>
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        overflow-y: auto;
+        background-color: #f5f5f5;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+    
+    nav a {
+        display: block;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: 18px;
+
+    }
+    
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header {
+        width: 100%;
+        background-color: none;
+        padding: 20px;
+        box-shadow: none;
+    }
+
+
+    section img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+
+
+    .caixa {
+        display: inline-block;
+        width: 30%;
+        /*border: 1px solid #ccc;*/
+        background-color: #f5f5f5;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .subsecao .conteudo {
+        height: auto; /* Altura inicial */
+        overflow: hidden; /* Esconde o conteúdo extra */
+        text-align: left;
+    }
+    
+    .subsecao.expandida .conteudo {
+        height: auto; /* Expande para mostrar todo o conteúdo */
+    }
+    .toggle {
+        cursor: pointer;
+        font-size: 1.2em;
+        background: none;
+        border: none;
+        padding: 0;
+        margin-left: 10px;
+    }
+        
+    .hamburger {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000; /* Certifique-se de que está sobre outros elementos */
+    }
+
+    .close-btn {
+        display: none;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .body-overlay {
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo preto com opacidade */
+        z-index: 10; /* Garante que o overlay está acima do conteúdo da página, mas abaixo do menu */
+    }
+
+    
+    /* Mobile view */
+    
+    @media screen and (max-width: 768px) 
+    {
+        .hamburger {
+            display: block;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: -200px; /* Start off-screen */
+            width: 200px;
+            height: 100vh;
+            /* Rest of your styles */
+        }
+        
+        section{
+            margin-left: 50px;
+        }
+        /* When menu is active */
+        
+        .active {
+            left: 0; /* Bring on-screen */
+        }
+        .close-btn {
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    }
+
+
+
+
+    </style>
 </head>
 <body>
     <header>
@@ -12,9 +160,9 @@
         <div class="hamburger">&#9776; </div>
         <nav>
             <a href="index.html">25 de maio</a>
-            <a href="#Informacoesuteis">Informações úteis</a>
-            <a href="#gift">Lista</a>
-            <a href="#confpres">Confirmar Presença</a>
+            <a href="index.html#Informacoesuteis">Informações úteis</a>
+            <a href="index.html#gift">Lista</a>
+            <a href="index.html#confpres">Confirmar Presença</a>
         </nav>
     </header>
 
@@ -92,9 +240,27 @@
     </section>
 
     <footer>
-        <p>&copy; 2023-2024 25maio Maria e Tiago - Todos os direitos reservados</p>
+        <p>&copy; 2024 25maio Maria e Tiago - Todos os direitos reservados</p>
     </footer>
     <script>
+        // Função para alternar o estado do menu e do overlay
+        function toggleMenu() {
+            let nav = document.querySelector('nav');
+            let body = document.querySelector('body');
+            nav.classList.toggle('active');
+            body.classList.toggle('body-overlay');
+        }
+
+        // Função para fechar o menu e remover o overlay
+        function closeMenu() {
+            let nav = document.querySelector('nav');
+            let body = document.querySelector('body');
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                body.classList.remove('body-overlay');
+            }
+        }
+
         // Expansão e Colapso de Subseções
         document.querySelectorAll('.subsecao .toggle').forEach(button => {
             button.addEventListener('click', function() {
@@ -104,24 +270,38 @@
             });
         });
 
-
         // Abrir o Menu Lateral com o Ícone do Hamburguer
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('nav').classList.add('active');
+        document.querySelector('.hamburger').addEventListener('click', function(event) {
+            event.stopPropagation(); // Impede a propagação para o window
+            toggleMenu();
         });
 
-        // Fechar o menu ao clicar em qualquer lugar
-        window.addEventListener('click', function(event) {
-            let nav = document.querySelector('nav');
-
-            // Se o clique foi no hamburguer, não faz nada (já que o evento do hamburguer vai lidar com isso)
-            if (event.target.matches('.hamburger')) {
-                return;
+        // Fechar o menu ao clicar no overlay
+        document.querySelector('body').addEventListener('click', function(event) {
+            // Checa se o clique ocorreu no body e não nos descendentes
+            if (event.target === document.querySelector('body')) {
+                closeMenu();
             }
-        
-            // Remove a classe 'active' do nav, fechando o menu
-            nav.classList.remove('active');
+        }, true); // O terceiro argumento 'true' define o evento no modo de captura
+
+        // Trata o clique nos links de navegação
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                // Navega para a seção da página
+                // A lógica de navegação deve ser implementada aqui, se necessário
+                // ...
+            
+                // Fecha o menu após a navegação
+                closeMenu();
+            });
         });
+
+        // Prevenir que cliques dentro do 'nav' fechem o menu
+        document.querySelector('nav').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+
 
     </script>
 </body>
