@@ -114,10 +114,18 @@
         background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo preto com opacidade */
         z-index: 10; /* Garante que o overlay está acima do conteúdo da página, mas abaixo do menu */
     }
-    /* Changing the color of the selected menu item */
+    /* CSS para a classe 'selected-section' */
     .selected-section {
-        color: #71765F; /* Change text color if necessary */
+        color: #71765F; /* Substitua por sua cor desejada */
+        font-weight: bold; /* Apenas um exemplo para destacar o item selecionado */
+        /* Adicione mais estilos conforme necessário */
     }
+    .main-menu .selected-section {
+        color: #71765F;
+        /* Outros estilos */
+    }
+
+    
     
     /* Mobile view */
     
@@ -304,9 +312,21 @@
             event.stopPropagation();
         });
 
-        // JavaScript to add the 'selected-section' class to the selected menu item
-        const selectedMenuItem = document.getElementById('selected-menu-item'); // Replace with your actual element
-        selectedMenuItem.classList.add('selected-section');
+        // JavaScript para adicionar a classe 'selected-section' ao item de menu selecionado
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = document.querySelectorAll('.menu-item'); // Substitua '.menu-item' pela classe dos seus itens de menu
+            
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Remover a classe 'selected-section' de todos os itens de menu
+                    menuItems.forEach(item => item.classList.remove('selected-section'));
+
+            // Adicionar a classe 'selected-section' ao item clicado
+                    item.classList.add('selected-section');
+                });
+            });
+        });
+
 
 
         
