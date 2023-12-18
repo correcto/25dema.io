@@ -115,8 +115,32 @@
         z-index: 10; /* Garante que o overlay está acima do conteúdo da página, mas abaixo do menu */
     }
 
+
+    /* Style for hidden navigation menu */
+    .nav-closed {
+        display: none;
+    }
+
+    /* Style for open navigation menu */
+    .nav-open {
+        display: flex; /* or your preferred display type for the nav */
+    }
+
+
     
     /* Mobile view */
+
+
+    @media screen and (min-width: 768px) 
+    {
+        .hamburger {
+            display: none;
+        }
+
+    }
+
+
+
     
     @media screen and (max-width: 768px) 
     {
@@ -178,13 +202,14 @@
     <section id="Informacoesuteis">
         <h2>Informações Úteis</h2>
         <div class="subsecao">
-            <h3>Como chegar <button class="toggle">+</button></h3>
-            <p class="conteudo" style="display: none;">Igreja Nossa Senhora da Piedade da Merceana: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana             <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank">(mapa)</a>
-                </p>
+            <h3>Como chegar <!-- <button class="toggle">+</button> --></h3>
+            <!--<p  class="conteudo" style="display: none;"  </p> -->
+                <p>  Igreja Nossa Senhora da Piedade da Merceana: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana             <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank">(mapa)</a>  </p>
         </div>
         <div class="subsecao">
-            <h3>Dress Code <button class="toggle">+</button></h3>
-            <p class="conteudo" style="display: none;">Fato Escuro                </p>
+            <h3>Dress Code <!--<button class="toggle">+</button></h3> 
+            p class="conteudo" style="display: none;">Fato Escuro                </p> --></h3>
+            <p> Fato Escuro                </p>
         </div>
         <!-- Repita para outras subseções -->
     </section>
@@ -192,8 +217,8 @@
     <section id="gift">
         <h2>Lista</h2>
 
-        <p>Aqui deixamos a lista de presentes (TIAGO TRATA DESTA FRASE)<br>
-        Para oferecer um presente, é escolher e seguir a indicações.
+        <p>Aqui deixamos uma lista de presentes para a nossa casa onde esperamos poder receber-vos<br></p>
+        <p>Para oferecer um presente, é escolher e seguir a indicações.<br>
         Muito obrigado!</p>
     
         <!-- Caixa 1 -->
@@ -242,6 +267,15 @@
     <footer>
         <p>&copy; 2024 25maio Maria e Tiago - Todos os direitos reservados</p>
     </footer>
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("25deMaio");
+        })();
+        
+        </script>
+
     <script>
         // Função para alternar o estado do menu e do overlay
         function toggleMenu() {
@@ -298,8 +332,54 @@
 
         // Prevenir que cliques dentro do 'nav' fechem o menu
         document.querySelector('nav').addEventListener('click', function(event) {
-            event.stopPropagation();
+            event.stopPropagation();        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var nav = document.querySelector('nav');
+            var body = document.querySelector('body');
+            var isNavOpen = false; // Initial state of the navigation menu
+
+            // Toggle navigation menu
+            nav.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevent click from propagating to body
+                toggleNav();
+            });
+        
+            // Close navigation menu when clicking on body
+            body.addEventListener('click', function() {
+                if (isNavOpen) {
+                    toggleNav();
+                }
+            });
+        
+            function toggleNav() {
+                if (isNavOpen) {
+                    nav.classList.remove('nav-open');
+                    nav.classList.add('nav-closed');
+                    isNavOpen = false;
+                } else {
+                    nav.classList.remove('nav-closed');
+                    nav.classList.add('nav-open');
+                    isNavOpen = true;
+                }
+            }
+        
         });
+
+
+        document.getElementById('formpres').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_jaofofs', 'template_mviek82', this)
+            .then(function() {
+                alert('Mensagem enviada com sucesso!');
+            }, function(error) {
+                alert('Falha ao enviar mensagem: ' + JSON.stringify(error));
+            });
+        
+        });
+
+
 
 
 

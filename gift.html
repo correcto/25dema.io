@@ -1,8 +1,45 @@
 <!-- gift.html -->
 <!-- Adicione um formulário de presente -->
-<form>
-    <label for="gift">Presente que Deu:</label>
+<h2>Presente escolhido, muito obrigado! </h2>
+<p>Para oferecer ou contribuir para este presente:<br>
+IBAN: xxx <br>
+MBWAY: xxxx <br>
+Agradecemos que indiquem o nome e presente oferecido para podermos agradecer</p>
+<form id="formpres">
+    <label for="name">Nome*:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="gift">Presente*:</label>
     <input type="text" id="gift" name="gift" required>
-    
+    <label for="Msg">Mesagem:</label>
+    <input type="text" id="Msg" name="Msg">  
     <button type="submit">Enviar Presente</button>
 </form>
+
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+(function(){
+    emailjs.init("25deMaio");
+    })();
+    
+    </script>
+
+
+<script>
+
+document.getElementById('formpres').addEventListener('submit', function(event) {
+    event.preventDefault();
+    emailjs.sendForm('service_jaofofs', 'template_mviek82', '#formpres', 'mGBdKwEiSpUZrkeLB')
+    .then(function() {
+        alert('Mensagem enviada, muito obrigado!');
+    }, function(error) {
+        alert('Falha ao enviar mensagem: ' + JSON.stringify(error));
+    });
+
+});
+
+
+
+
+
+</script>
+
