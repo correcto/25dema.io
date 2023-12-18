@@ -114,6 +114,16 @@
         background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo preto com opacidade */
         z-index: 10; /* Garante que o overlay está acima do conteúdo da página, mas abaixo do menu */
     }
+    /* CSS para a classe 'selected-section' */
+    .selected-section {
+        color: #71765F; /* Substitua por sua cor desejada */
+        font-weight: bold; /* Apenas um exemplo para destacar o item selecionado */
+        /* Adicione mais estilos conforme necessário */
+    }
+    .main-menu .selected-section {
+        color: #71765F;
+        /* Outros estilos */
+    }
 
 
     /* Style for hidden navigation menu */
@@ -127,6 +137,7 @@
     }
 
 
+    
     
     /* Mobile view */
 
@@ -366,6 +377,25 @@
             }
         
         });
+
+        // JavaScript para adicionar a classe 'selected-section' ao item de menu selecionado
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = document.querySelectorAll('.menu-item'); // Substitua '.menu-item' pela classe dos seus itens de menu
+            
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Remover a classe 'selected-section' de todos os itens de menu
+                    menuItems.forEach(item => item.classList.remove('selected-section'));
+
+            // Adicionar a classe 'selected-section' ao item clicado
+                    item.classList.add('selected-section');
+                });
+            });
+        });
+
+
+
+        
 
 
         document.getElementById('formpres').addEventListener('submit', function(event) {
