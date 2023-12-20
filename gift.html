@@ -16,35 +16,6 @@ Agradecemos que indiquem o nome e presente oferecido para podermos agradecer</p>
 </form>
 
 
-<script>
-
-document.getElementById('formpres').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    var formData = new FormData(this);
-
-    fetch('https://hooks.zapier.com/hooks/catch/17376544/3azs6jr/', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        if (response.ok) {
-            // Show success message or redirect
-            document.getElementById('successMessage').style.display = 'block';
-            // Or redirect to another page
-            // window.location.href = 'thank-you.html';
-        } else {
-            // Handle errors
-            console.log('Network response was not ok.');
-        }
-    })
-    .catch(error => {
-        // Handle network errors
-        console.error('There has been a problem with your fetch operation:', error);
-    });
-});
-</script>
-
 <!--
 
 document.getElementById('formpres').addEventListener('submit', function(event) {
