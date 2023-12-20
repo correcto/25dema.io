@@ -392,20 +392,6 @@
 
 
 
-        
-
-
-        document.getElementById('formpres').addEventListener('submit', function(event) {
-            event.preventDefault();
-            emailjs.sendForm('service_jaofofs', 'template_mviek82', this)
-            .then(function() {
-                alert('Mensagem enviada com sucesso!');
-            }, function(error) {
-                alert('Falha ao enviar mensagem: ' + JSON.stringify(error));
-            });
-        
-        });
-
 
 
 
