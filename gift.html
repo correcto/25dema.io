@@ -5,7 +5,7 @@
 IBAN: xxx <br>
 MBWAY: xxxx <br>
 Agradecemos que indiquem o nome e presente oferecido para podermos agradecer</p>
-<form id="formpres">
+<form id="formpres" action="https://hooks.zapier.com/hooks/catch/17376544/3azs6jr/" method="post">
     <label for="name">Nome*:</label>
     <input type="text" id="name" name="name" required>
     <label for="gift">Presente*:</label>
@@ -15,31 +15,74 @@ Agradecemos que indiquem o nome e presente oferecido para podermos agradecer</p>
     <button type="submit">Enviar Presente</button>
 </form>
 
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-(function(){
-    emailjs.init("25deMaio");
-    })();
-    
-    </script>
-
 
 <script>
 
 document.getElementById('formpres').addEventListener('submit', function(event) {
     event.preventDefault();
-    emailjs.sendForm('service_jaofofs', 'template_mviek82', '#formpres', 'mGBdKwEiSpUZrkeLB')
-    .then(function() {
-        alert('Mensagem enviada, muito obrigado!');
-    }, function(error) {
-        alert('Falha ao enviar mensagem: ' + JSON.stringify(error));
+
+    var formData = new FormData(this);
+
+    fetch('https://hooks.zapier.com/hooks/catch/17376544/3azs6jr/', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            // Show success message or redirect
+            document.getElementById('successMessage').style.display = 'block';
+            // Or redirect to another page
+            // window.location.href = 'thank-you.html';
+        } else {
+            // Handle errors
+            console.log('Network response was not ok.');
+        }
+    })
+    .catch(error => {
+        // Handle network errors
+        console.error('There has been a problem with your fetch operation:', error);
     });
-
 });
+</script>
 
+<!--
 
+document.getElementById('formpres').addEventListener('submit', function(event) {
+    event.preventDefault();
 
+    var formData = {
+        name: this.name.value,
+        gift: this.gift.value,
+        Msg: this.Msg.value
+    };
 
+    fetch('https://api.brevo.com/v3/emailCampaigns', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'api-key': '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'
+        },
+        body: JSON.stringify({
+            sender: { name: '25deMaio', email: '25demaio@gmail.com' },
+            to: [{ email: '25demaio@gmail.com' }],
+            subject: 'Presente Casamento',
+            htmlContent: '<p>Nome: ' + formData.name + '</p>' +
+                         '<p>Presente: ' + formData.gift + '</p>' +
+                         '<p>Mensagem: ' + formData.Msg + '</p>'
+        })
+    })
+    .then(response => {
+        if(response.status === 200) {
+            alert('Mensagem enviada com sucesso!');
+        } else {
+            alert('Falha ao enviar mensagem.');
+        }
+    })
+    .catch(error => {
+        alert('Erro: ' + error);
+    });
+});
 
 </script>
 
+-->
