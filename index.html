@@ -103,6 +103,24 @@
         cursor: pointer;
     }
 
+    .nome-input {
+        height: 20px; /* Altura para o campo 'Nome' */
+        width: 100%; /* Largura para o campo 'Nome' */
+        /* Outros estilos personalizados podem ser adicionados aqui */
+    }
+
+    .mensagem-input {
+        height: 100px; /* Altura para o campo 'Mensagem' */
+        width: 100%; /* Largura para o campo 'Mensagem' */
+        /* Outros estilos personalizados podem ser adicionados aqui */
+    }
+
+    .select-input {
+        height: 20px; /* Altura para a caixa de seleção */
+        width: 100%; /* Largura para a caixa de seleção */
+        /* Outros estilos personalizados podem ser adicionados aqui */
+    }
+
     .body-overlay {
         position: fixed;
         top:0;
@@ -120,7 +138,7 @@
         font-weight: bold; /* Apenas um exemplo para destacar o item selecionado */
         /* Adicione mais estilos conforme necessário */
     }
-    .main-menu .selected-section {
+    .nav-menu .selected-section {
         color: #71765F;
         /* Outros estilos */
     }
@@ -148,6 +166,11 @@
             display: none;
         }
 
+        .nav-menu {
+        display: block;
+    }
+
+
     }
 
 
@@ -158,6 +181,11 @@
         .hamburger {
             display: block;
         }
+
+        .nav-menu {
+        display: none;
+    }
+
         
         nav {
             position: fixed;
@@ -176,6 +204,8 @@
         .active {
             left: 0; /* Bring on-screen */
         }
+        
+ 
         .close-btn {
             display: block;
             position: absolute;
@@ -183,7 +213,7 @@
             right: 20px;
         }
     }
-
+ 
 
 
 
@@ -196,8 +226,8 @@
         <nav>
             <a href="index.html">25 de maio</a>
             <a href="index.html#Informacoesuteis">Informações úteis</a>
-            <a href="index.html#gift">Lista</a>
             <a href="index.html#confpres">Confirmar Presença</a>
+            <a href="index.html#gift">Lista</a>
         </nav>
     </header>
 
@@ -224,6 +254,36 @@
         </div>
         <!-- Repita para outras subseções -->
     </section>
+
+    <section id="confpres">
+        <h2>Esperamos poder contar com todos</h2>
+        <p>Pedimos que confirmem a presença</p>
+        <form action="https://hooks.zapier.com/hooks/catch/17376544/3azwepy/" method="post">
+            <p>
+            <label for="name">Nome*:</label>
+            <input type="text" id="name" name="name" class="nome-input" required>
+            </p>
+            
+            <p>
+            <label for="attendance">Confirmar Presença:</label>
+            <select id="attendance" name="attendance" class="select-input" required>
+                <option value="yes">Sim, estarei lá!</option>
+                <option value="no">Infelizmente, não poderei comparecer.</option>
+            </select>
+            </p>
+            
+            <p>
+            <label for="Msg">Mensagem:</label>
+            <input type="text" id="Msg" name="Msg" class="mensagem-input">
+            </p>
+            
+
+            <p>
+            <button type="submit">Enviar RSVP</button>
+            </p>
+        </form>
+    </section>
+
     
     <section id="gift">
         <h2>Lista</h2>
@@ -242,35 +302,6 @@
             <h3>LUA DE MEL</h3>
         </a>
     </section>
-    
-    <section id="confpres">
-        <h2>Esperamos poder contar com todos</h2>
-        <p>Pedimos que confirmem a presença</p>
-        <form action="https://hooks.zapier.com/hooks/catch/17376544/3azwepy/" method="post">
-            <p>
-            <label for="name">Nome*:</label>
-            <input type="text" id="name" name="name" required>
-            </p>
-            
-            <p>
-            <label for="attendance">Confirmar Presença:</label>
-            <select id="attendance" name="attendance" required>
-                <option value="yes">Sim, estarei lá!</option>
-                <option value="no">Infelizmente, não poderei comparecer.</option>
-            </select>
-            </p>
-            
-            <p>
-            <label for="Msg">Mensagem:</label>
-            <input type="text" id="Msg" name="Msg">
-            </p>
-            
-
-            <p>
-            <button type="submit">Enviar RSVP</button>
-            </p>
-        </form>
-    </section>
 
     <footer>
         <p>&copy; 2024 25maio Maria e Tiago - Todos os direitos reservados</p>
@@ -285,106 +316,59 @@
         </script>
 
     <script>
-        // Função para alternar o estado do menu e do overlay
-        function toggleMenu() {
-            let nav = document.querySelector('nav');
-            let body = document.querySelector('body');
-            nav.classList.toggle('active');
-            body.classList.toggle('body-overlay');
-        }
-
-        // Função para fechar o menu e remover o overlay
-        function closeMenu() {
-            let nav = document.querySelector('nav');
-            let body = document.querySelector('body');
-            if (nav.classList.contains('active')) {
-                nav.classList.remove('active');
-                body.classList.remove('body-overlay');
-            }
-        }
-
-        // Expansão e Colapso de Subseções
-        document.querySelectorAll('.subsecao .toggle').forEach(button => {
-            button.addEventListener('click', function() {
-                var conteudo = this.parentElement.nextElementSibling;
-                conteudo.style.display = conteudo.style.display === "none" ? "block" : "none";
-                this.textContent = conteudo.style.display === "block" ? "-" : "+";
-            });
-        });
-
-        // Abrir o Menu Lateral com o Ícone do Hamburguer
-        document.querySelector('.hamburger').addEventListener('click', function(event) {
-            event.stopPropagation(); // Impede a propagação para o window
-            toggleMenu();
-        });
-
-        // Fechar o menu ao clicar no overlay
-        document.querySelector('body').addEventListener('click', function(event) {
-            // Checa se o clique ocorreu no body e não nos descendentes
-            if (event.target === document.querySelector('body')) {
-                closeMenu();
-            }
-        }, true); // O terceiro argumento 'true' define o evento no modo de captura
-
-        // Trata o clique nos links de navegação
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(event) {
-                // Navega para a seção da página
-                // A lógica de navegação deve ser implementada aqui, se necessário
-                // ...
-            
-                // Fecha o menu após a navegação
-                closeMenu();
-            });
-        });
-
-        // Prevenir que cliques dentro do 'nav' fechem o menu
-        document.querySelector('nav').addEventListener('click', function(event) {
-            event.stopPropagation();        });
-
-
         document.addEventListener('DOMContentLoaded', function() {
-            var nav = document.querySelector('nav');
-            var body = document.querySelector('body');
-            var isNavOpen = false; // Initial state of the navigation menu
-
-            // Toggle navigation menu
-            nav.addEventListener('click', function(event) {
-                event.stopPropagation(); // Prevent click from propagating to body
-                toggleNav();
-            });
-        
-            // Close navigation menu when clicking on body
-            body.addEventListener('click', function() {
-                if (isNavOpen) {
-                    toggleNav();
-                }
-            });
-        
-            function toggleNav() {
-                if (isNavOpen) {
-                    nav.classList.remove('nav-open');
-                    nav.classList.add('nav-closed');
-                    isNavOpen = false;
-                } else {
-                    nav.classList.remove('nav-closed');
-                    nav.classList.add('nav-open');
-                    isNavOpen = true;
+            // Toggle menu and overlay
+            function toggleMenu() {
+                let nav = document.querySelector('nav');
+                let body = document.querySelector('body');
+                if (window.innerWidth <= 768) {
+                    nav.classList.toggle('active');
+                    body.classList.toggle('body-overlay');
                 }
             }
         
-        });
-
-        // JavaScript para adicionar a classe 'selected-section' ao item de menu selecionado
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuItems = document.querySelectorAll('.menu-item'); // Substitua '.menu-item' pela classe dos seus itens de menu
-            
+            // Close menu and overlay
+            function closeMenu() {
+                let nav = document.querySelector('nav');
+                let body = document.querySelector('body');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    body.classList.remove('body-overlay');
+                }
+            }
+        
+            // Hamburger icon click
+            document.querySelector('.hamburger').addEventListener('click', function(event) {
+                event.stopPropagation();
+                toggleMenu();
+            });
+        
+            // Close menu when clicking outside
+            document.body.addEventListener('click', function(event) {
+                if (!event.target.closest('nav')) {
+                    closeMenu();
+                }
+            });
+        
+            // Navigation link click
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        
+            // Subsection toggle
+            document.querySelectorAll('.subsecao .toggle').forEach(button => {
+                button.addEventListener('click', function() {
+                    let content = this.parentElement.nextElementSibling;
+                    content.style.display = content.style.display === "none" ? "block" : "none";
+                    this.textContent = content.style.display === "block" ? "-" : "+";
+                });
+            });
+        
+            // Menu item selection
+            const menuItems = document.querySelectorAll('.menu-item');
             menuItems.forEach(item => {
                 item.addEventListener('click', () => {
-                    // Remover a classe 'selected-section' de todos os itens de menu
                     menuItems.forEach(item => item.classList.remove('selected-section'));
-
-            // Adicionar a classe 'selected-section' ao item clicado
                     item.classList.add('selected-section');
                 });
             });

@@ -4,8 +4,49 @@
     <meta charset="UTF-8">
     <title>Serviço</title>
     <style>
+
+
+
         .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Creates a three-column layout */
+            justify-content: space-between;
+            grid-auto-rows: minmax(100px, auto); /* Sets a minimum row height */
+            gap: 1rem; /* Adjust the gap to your preference */
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
+            }
+        }
+
+
+        .gallery-item {
             display: flex;
+            flex-direction: column;
+            margin: 5px;
+            justify-content: flex-end; /* Aligns the description to the bottom */
+        }
+
+
+        .gallery-item img {
+            width: 100%; /* Makes the image responsive within the grid item */
+            height: auto;
+            max-height: auto; /* Adjust max-height to suit your design */
+        }
+
+        .gallery-item-description {
+            /* Add additional styling for your descriptions here */
+        }
+
+
+
+/*
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Três colunas 
+            grid-gap: 10px; /* Espaço entre itens 
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: flex-start;
@@ -13,25 +54,38 @@
             padding: 0;
         }
         .gallery-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Conteúdo alinhado verticalmente 
             width: 30%;
             margin: 5px;
             text-align: left;
         }
+
+*/
         .gallery-item a {
             display: inline-block; /* Faz o link se ajustar ao tamanho da imagem */
             margin-bottom: 5px; /* Espaço entre a imagem e o texto */
         }
+
+/*
         .gallery-item img {
             
-            width: 100%; /* ou um valor fixo, por exemplo, 300px */
+            width: 100%; /* ou um valor fixo, por exemplo, 300px 
+            min-height: 100px; /* Altura mínima 
+            object-fit: cover;
             height: auto;
             border: none;
         }
+
+*/
         .gallery-item p {
             margin: 0;
             font-family: Arial, sans-serif;
             color: #333;
         }
+
+
     </style>
 </head>
 <body>
@@ -74,7 +128,8 @@
           { link: 'gift.html', image: 'lista_images/faqueiro.jpeg', description: 'faqueiro', price: '1000 euros - 10 frações de 100 euros'  },
           { link: 'gift.html', image: 'lista_images/cadeiras.jpeg', description: '2x cadeira', price: '220 euros cada'  },
           { link: 'gift.html', image: 'lista_images/sofa_cama.jpeg', description: 'sofa cama', price: '279 euros'},
-          { link: 'gift.html', image: 'lista_images/candeeiro.jpeg', description: 'canddeiro de pé', price: '685 euros - 5 frações de 137'},
+          { link: 'gift.html', image: 'lista_images/candeeiro.png', description: 'candeeiro de pé', price: '685 euros - 5 frações de 137'},
+          { link: 'gift.html', image: 'lista_images/candeeiro_de_mesa.png', description: 'candeeiro de mesa', price: '200'},
           { link: 'gift.html', image: 'lista_images/secretaria.jpg', description: 'secretária', price: '1700 euros - 10 frações de 170'},
 
   
@@ -114,6 +169,31 @@
         galleryItems.forEach(item => {
             galleryContainer.appendChild(createGalleryItem(item));
         });
+        
+        function adjustGalleryItemHeights() {
+            let maxHeight = 0;
+            const images = document.querySelectorAll('.gallery-item img');
+            
+            
+            // Find the tallest image
+            
+            images.forEach(img => {
+                if (img.height > maxHeight) {
+                    maxHeight = img.height;
+                }
+            });
+            
+            // Set each gallery item's height to match the tallest image
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                item.style.height = `${maxHeight}px`;
+            });
+        }
+        // Run the function on window load and resize
+        window.addEventListener('load', adjustGalleryItemHeights);
+        window.addEventListener('resize', adjustGalleryItemHeights);
+
+
       </script>
       
 </body>
