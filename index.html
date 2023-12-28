@@ -180,19 +180,25 @@
     {
         .hamburger {
             display: block;
+            position: fixed;
+
         }
 
         .nav-menu {
         display: none;
+        position: fixed;
+
     }
 
         
         nav {
+            display: block; /* Always display the menu */
+
             position: fixed;
             top: 0;
             transform: translateX(-100%); /* Hide off-screen */
             transition: transform 0.3s ease-in-out;
-            /*left: -200px; /* Start off-screen */
+            left: 0; /* Start off-screen */
             width: 200px;
             height: 100vh;
             /* Rest of your styles */
