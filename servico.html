@@ -1,66 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Lista</title>
     <style>
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Creates a 4 layout */
+        justify-content: space-between;
+        grid-auto-rows: minmax(100px, auto); /* Sets a minimum row height */
+        gap: 1rem; /* Adjust the gap to your preference */
+      }
 
-
-
+      @media (max-width: 1024px) {
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Creates a three-column layout */
-            justify-content: space-between;
-            grid-auto-rows: minmax(100px, auto); /* Sets a minimum row height */
-            gap: 1rem; /* Adjust the gap to your preference */
+          grid-template-columns: repeat(
+            3,
+            1fr
+          ); /* Creates a three-column layout */
         }
+      }
 
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
-            }
+      @media (max-width: 768px) {
+        .gallery {
+          grid-template-columns: repeat(
+            2,
+            1fr
+          ); /* Two columns for smaller screens */
         }
+      }
 
+      .gallery-item {
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+        justify-content: flex-end; /* Aligns the description to the bottom */
+      }
 
-        .gallery-item {
-            display: flex;
-            flex-direction: column;
-            margin: 5px;
-            justify-content: flex-end; /* Aligns the description to the bottom */
-        }
+      .gallery-item img {
+        object-fit: cover; /* Ensures the image fills the parent container */
+        max-width: 100%; /* Resizes the image to fit the parent's width */
+        max-height: 100%; /* Resizes the image to fit the parent's height */
+      }
 
+      .gallery-item-description {
+        /* Add additional styling for your descriptions here */
+      }
 
-        .gallery-item img {
-            width: 100%; /* Makes the image responsive within the grid item */
-            height: auto;
-            max-height: auto; /* Adjust max-height to suit your design */
-        }
+      .gallery-item a {
+        display: inline-block; /* Faz o link se ajustar ao tamanho da imagem */
+        margin-bottom: 5px; /* Espaço entre a imagem e o texto */
+      }
 
-        .gallery-item-description {
-            /* Add additional styling for your descriptions here */
-        }
-
-
-
-        .gallery-item a {
-            display: inline-block; /* Faz o link se ajustar ao tamanho da imagem */
-            margin-bottom: 5px; /* Espaço entre a imagem e o texto */
-        }
-
-        .gallery-item p {
-            margin: 0;
-            font-size: 1.8vw;
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
-
-
+      .gallery-item p {
+        margin: 0;
+        font-size: 1.1rem;
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
     </style>
-</head>
-<body>
-
-
-<!--    
+  </head>
+  <body>
+    <!--    
     
     
     <div class="gallery">
@@ -86,84 +91,116 @@
     <div class="gallery"></div>
 
     <script>
-        // Data array
-        const galleryItems = [
-          { link: 'gift.html', image: 'lista_images/prato_jantar.jpeg', description: '14 pratos de jantar', price: "182 euros" },
-          { link: 'gift.html', image: 'lista_images/prato_sopa.jpeg', description: '14 pratos de sopa', price: "175 euros" },
-          { link: 'gift.html', image: 'lista_images/prato_sobremesa.jpeg', description: '14 pratos de sobremesa', price: "154 euros" },
-          { link: 'gift.html', image: 'lista_images/assadeira.jpeg', description: '2 assadeiras', price: "91 euros" },
-          { link: 'gift.html', image: 'lista_images/saladeira.jpeg', description: '2 saladeiras', price: "75 euros" },
-          { link: 'gift.html', image: 'lista_images/travessa.jpeg', description: '2 travessas', price: "67 euros" },
-          { link: 'gift.html', image: 'lista_images/faqueiro.jpeg', description: 'faqueiro', price: '1000 euros - 10 frações de 100 euros'  },
-          { link: 'gift.html', image: 'lista_images/cadeiras.jpeg', description: '2x cadeira', price: '220 euros cada'  },
-          { link: 'gift.html', image: 'lista_images/sofa_cama.jpeg', description: 'sofa cama', price: '279 euros'},
-          { link: 'gift.html', image: 'lista_images/candeeiro.png', description: 'candeeiro de pé', price: '685 euros - 5 frações de 137'},
-          { link: 'gift.html', image: 'lista_images/candeeiro_de_mesa.png', description: 'candeeiro de mesa', price: '200'},
-          { link: 'gift.html', image: 'lista_images/secretaria.jpg', description: 'secretária', price: '1700 euros - 10 frações de 170'},
+      // Data array
+      const galleryItems = [
+        {
+          link: 'gift.html',
+          image: 'lista_images/prato_jantar.jpeg',
+          description: '14 pratos de jantar',
+          price: '182 euros',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/prato_sopa.jpeg',
+          description: '14 pratos de sopa',
+          price: '175 euros',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/prato_sobremesa.jpeg',
+          description: '14 pratos de sobremesa',
+          price: '154 euros',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/assadeira.jpeg',
+          description: '2 assadeiras',
+          price: '91 euros',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/saladeira.jpeg',
+          description: '2 saladeiras',
+          price: '75 euros',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/travessa.jpeg',
+          description: '2 travessas',
+          price: '67 euros',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/faqueiro.jpeg',
+          description: 'faqueiro',
+          price: '1000 euros - 10 frações de 100 euros',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/cadeiras.jpeg',
+          description: '2x cadeira',
+          price: '220 euros cada',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/sofa_cama.jpeg',
+          description: 'sofa cama',
+          price: '279 euros',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/candeeiro.png',
+          description: 'candeeiro de pé',
+          price: '685 euros - 5 frações de 137',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/candeeiro_de_mesa.png',
+          description: 'candeeiro de mesa',
+          price: '200',
+        },
+        {
+          link: 'gift.html',
+          image: 'lista_images/secretaria.jpg',
+          description: 'secretária',
+          price: '1700 euros - 10 frações de 170',
+        },
 
-  
+        // ... more items
+      ];
 
-          // ... more items
-        ];
-      
-        // Function to create a gallery item
-        function createGalleryItem(item) {
-          // Create elements
-          const itemDiv = document.createElement('div');
-          itemDiv.className = 'gallery-item';
-      
-          const link = document.createElement('a');
-          link.href = item.link;
-      
-          const img = document.createElement('img');
-          img.src = item.image;
-      
-          const description = document.createElement('p');
-          description.textContent = item.description;
-      
-          const price = document.createElement('p');
-          price.textContent = item.price;
-      
-          // Append elements
-          link.appendChild(img);
-          itemDiv.appendChild(link);
-          itemDiv.appendChild(description);
-          itemDiv.appendChild(price);
-      
-          return itemDiv;
-        }
-      
-        // Insert items into the DOM
-        const galleryContainer = document.querySelector('.gallery');
-        galleryItems.forEach(item => {
-            galleryContainer.appendChild(createGalleryItem(item));
-        });
-        
-        function adjustGalleryItemHeights() {
-            let maxHeight = 0;
-            const images = document.querySelectorAll('.gallery-item img');
-            
-            
-            // Find the tallest image
-            
-            images.forEach(img => {
-                if (img.height > maxHeight) {
-                    maxHeight = img.height;
-                }
-            });
-            
-            // Set each gallery item's height to match the tallest image
-            const items = document.querySelectorAll('.gallery-item');
-            items.forEach(item => {
-                item.style.height = `${maxHeight}px`;
-            });
-        }
-        // Run the function on window load and resize
-        window.addEventListener('load', adjustGalleryItemHeights);
-        window.addEventListener('resize', adjustGalleryItemHeights);
+      // Function to create a gallery item
+      function createGalleryItem(item) {
+        // Create elements
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'gallery-item';
 
+        const link = document.createElement('a');
+        link.href = item.link;
 
-      </script>
-      
-</body>
+        const img = document.createElement('img');
+        img.src = item.image;
+
+        const description = document.createElement('p');
+        description.textContent = item.description;
+
+        const price = document.createElement('p');
+        price.textContent = item.price;
+
+        // Append elements
+        link.appendChild(img);
+        itemDiv.appendChild(link);
+        itemDiv.appendChild(description);
+        itemDiv.appendChild(price);
+
+        return itemDiv;
+      }
+
+      // Insert items into the DOM
+      const galleryContainer = document.querySelector('.gallery');
+      galleryItems.forEach((item) => {
+        galleryContainer.appendChild(createGalleryItem(item));
+      });
+    </script>
+  </body>
 </html>
