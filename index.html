@@ -31,6 +31,18 @@
         font-size: 18px;
 
     }
+
+    .body-overlay {
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo preto com opacidade */
+        z-index: 10; /* Garante que o overlay está acima do conteúdo da página, mas abaixo do menu */
+    }
     
 
     body {
@@ -121,17 +133,6 @@
         /* Outros estilos personalizados podem ser adicionados aqui */
     }
 
-    .body-overlay {
-        position: fixed;
-        top:0;
-        left:0;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo preto com opacidade */
-        z-index: 10; /* Garante que o overlay está acima do conteúdo da página, mas abaixo do menu */
-    }
     /* CSS para a classe 'selected-section' */
     .selected-section {
         color: #71765F; /* Substitua por sua cor desejada */
