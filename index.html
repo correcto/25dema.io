@@ -88,6 +88,9 @@
         margin: 10px;
         text-align: center;
         cursor: pointer;
+        color: #71765f;
+        text-decoration: none;
+
       }
       .subsecao .conteudo {
         height: auto; /* Altura inicial */
@@ -129,8 +132,13 @@
       .mensagem-input {
         height: 100px; /* Altura para o campo 'Mensagem' */
         width: 100%; /* Largura para o campo 'Mensagem' */
-        /* Outros estilos personalizados podem ser adicionados aqui */
-      }
+        overflow-y: auto; /* Adds a vertical scrollbar when needed */
+        padding: 10px;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        border-radius: 4px;
+    }
+    
 
       .select-input {
         height: 20px; /* Altura para a caixa de seleção */
@@ -221,10 +229,10 @@
     <header>
       <div class="hamburger">&#9776;</div>
       <nav>
-        <a href="index.html">25 de maio</a>
-        <a href="index.html#Informacoesuteis">Informações úteis</a>
-        <a href="index.html#confpres">Confirmar Presença</a>
-        <a href="index.html#gift">Lista</a>
+        <a href="index.html" class="menu-item">25 de maio</a>
+        <a href="index.html#Informacoesuteis" class="menu-item">Informações úteis</a>
+        <a href="index.html#confpres" class="menu-item">Confirmar Presença</a>
+        <a href="index.html#gift" class="menu-item">Lista</a>
       </nav>
     </header>
     <div class="overlay"></div>
@@ -311,13 +319,13 @@
     
         <p id="foodDetails" style="display: none;">
           <label for="foodDetailsText">Por favor, detalhe suas restrições:</label>
-          <input type="text" id="foodDetailsText" name="foodDetailsText" class="mensagem-input" />
+          <textarea id="foodDetailsText" name="foodDetailsText" class="mensagem-input"></textarea>
         </p>
     
 
         <p>
           <label for="Msg">Mensagem:</label>
-          <input type="text" id="Msg" name="Msg" class="mensagem-input" />
+          <textarea id="Msg" name="Msg" class="mensagem-input"></textarea>
         </p>
 
         <p>
