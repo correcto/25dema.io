@@ -300,6 +300,20 @@
             <option value="no">Infelizmente, não poderei comparecer.</option>
           </select>
         </p>
+        <p>
+          <label for="foodRestriction">Possui alguma intolerância ou restrição alimentar?</label>
+          <select id="foodRestriction" name="foodRestriction" class="select-input" required>
+            <option value="">Selecione uma opção</option>
+            <option value="no">Não</option>
+            <option value="yes">Sim</option>
+          </select>
+        </p>
+    
+        <p id="foodDetails" style="display: none;">
+          <label for="foodDetailsText">Por favor, detalhe suas restrições:</label>
+          <input type="text" id="foodDetailsText" name="foodDetailsText" class="mensagem-input" />
+        </p>
+    
 
         <p>
           <label for="Msg">Mensagem:</label>
@@ -410,6 +424,13 @@
           });
         });
       });
+      
+      document.getElementById('foodRestriction').addEventListener('change', function() {
+        var style = this.value == 'yes' ? 'block' : 'none';
+        document.getElementById('foodDetails').style.display = style;
+      
+      });
+
     </script>
   </body>
 </html>
