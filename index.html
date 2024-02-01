@@ -5,167 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maria e Tiago</title>
     <style>
-      nav {
-        position: fixed;
-        z-index: 1; /* Make sure nav is above overlay */
-        top: 0;
-        left: 0;
-        width: 200px;
-        height: 100vh;
-        overflow-y: auto;
-        background-color: #f5f5f5;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 20px;
-      }
-
-      nav a {
-        display: block;
-        margin-bottom: 10px;
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        font-size: 18px;
-      }
-
-      .overlay {
-        display: none; /* hide overlay by default */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgba(
-          0,
-          0,
-          0,
-          0.5
-        ); /* Cor de fundo preto com opacidade */
-      }
-
-      .overlay.visible {
-        display: block;
-      }
-
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      header {
-        width: 100%;
-        background-color: none;
-        padding: 20px;
-        box-shadow: none;
-      }
-
-      section img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      footer {
-        margin-top: 20px;
-      }
-
-      .caixa {
-        display: inline-block;
-        width: 30%;
-        /*border: 1px solid #ccc;*/
-        background-color: #f5f5f5;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        margin: 10px;
-        text-align: center;
-        cursor: pointer;
-        color: #71765f;
-        text-decoration: none;
-
-      }
-      .subsecao .conteudo {
-        height: auto; /* Altura inicial */
-        overflow: hidden; /* Esconde o conteúdo extra */
-        text-align: left;
-      }
-
-      .subsecao.expandida .conteudo {
-        height: auto; /* Expande para mostrar todo o conteúdo */
-      }
-      .toggle {
-        cursor: pointer;
-        font-size: 1.2em;
-        background: none;
-        border: none;
-        padding: 0;
-        margin-left: 10px;
-      }
-
-      .hamburger {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000; /* Certifique-se de que está sobre outros elementos */
-      }
-
-      .close-btn {
-        display: none;
-        font-size: 30px;
-        cursor: pointer;
-      }
-
-      .nome-input {
-        height: 20px; /* Altura para o campo 'Nome' */
-        width: 100%; /* Largura para o campo 'Nome' */
-        /* Outros estilos personalizados podem ser adicionados aqui */
-      }
-
-      .mensagem-input {
-        height: 100px; /* Altura para o campo 'Mensagem' */
-        width: 100%; /* Largura para o campo 'Mensagem' */
-        overflow-y: auto; /* Adds a vertical scrollbar when needed */
-        padding: 10px;
-        border: 1px solid #ccc;
-        box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-        border-radius: 4px;
+    nav {
+      position: fixed;
+      z-index: 1; /* Make sure nav is above overlay */
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: #f5f5f5;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 20px;
     }
+
+    nav a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .overlay {
+      display: none; /* hide overlay by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(
+        0,
+        0,
+        0,
+        0.5
+      ); /* Cor de fundo preto com opacidade */
+    }
+
+
+    .overlay.visible {
+      display: block;
+    }
+
+    body {
+        width: 100%;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    header {
+      width: 100%;
+      background-color: none;
+      padding: 20px;
+      box-shadow: none;
+    }
+
+    section img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    footer {
+      margin-top: 20px;
+    }
+
+    .caixa {
+      display: inline-block;
+      width: 30%;
+      /*border: 1px solid #ccc;*/
+      background-color: #f5f5f5;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
+      cursor: pointer;
+      color: #71765f;
+      text-decoration: none 
+    }
+    .subsecao .conteudo {
+      height: auto; /* Altura inicial */
+      overflow: hidden; /* Esconde o conteúdo extra */
+      text-align: left;
+    }
+
+    .subsecao.expandida .conteudo {
+      height: auto; /* Expande para mostrar todo o conteúdo */
+    }
+    .toggle {
+      cursor: pointer;
+      font-size: 1.2em;
+      background: none;
+      border: none;
+      padding: 0;
+      margin-left: 10px;
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000; /* Certifique-se de que está sobre outros elementos */
+    }
+    .close-btn {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .nome-input {
+      height: 20px; /* Altura para o campo 'Nome' */
+      width: 100%; /* Largura para o campo 'Nome' */
+      /* Outros estilos personalizados podem ser adicionados aqui */
+    }
+
+    .mensagem-input {
+      height: 100px; /* Altura para o campo 'Mensagem' */
+      width: 100%; /* Largura para o campo 'Mensagem' */
+      overflow-y: auto; /* Adds a vertical scrollbar when needed */
+      padding: 10px;
+      border: 1px solid #ccc;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      border-radius: 4px;
+    }
+
+    .select-input {
+      height: 20px; /* Altura para a caixa de seleção */
+      width: 100%; /* Largura para a caixa de seleção */
+    }
+    /* CSS para a classe 'selected-section' */
+    .selected-section {
+      color: #71765f; /* Substitua por sua cor desejada */
+      font-weight: bold; /* Apenas um exemplo para destacar o item selecionado */
+    }        
+    
+    .nav-menu .selected-section {
+      color: #71765f;
+    }
+    /* Style for hidden navigation menu */
+    .nav-closed {
+      display: none;
+
+    }
+
+    /* Style for open navigation menu */
+    .nav-open {
+      display: flex; /* or your preferred display type for the nav */
+    }
+
+
+    
+    section {
+        padding: 20px;
+        margin: 0 auto; /* Centraliza a section e remove a margem à esquerda padrão */
+        max-width: 1200px; /* Limita a largura da section */
+    }
+
+    .local-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+
+
     
 
-      .select-input {
-        height: 20px; /* Altura para a caixa de seleção */
-        width: 100%; /* Largura para a caixa de seleção */
-        /* Outros estilos personalizados podem ser adicionados aqui */
-      }
 
-      /* CSS para a classe 'selected-section' */
-      .selected-section {
-        color: #71765f; /* Substitua por sua cor desejada */
-        font-weight: bold; /* Apenas um exemplo para destacar o item selecionado */
-        /* Adicione mais estilos conforme necessário */
-      }
-      .nav-menu .selected-section {
-        color: #71765f;
-        /* Outros estilos */
-      }
-
-      /* Style for hidden navigation menu */
-      .nav-closed {
-        display: none;
-      }
-
-      /* Style for open navigation menu */
-      .nav-open {
-        display: flex; /* or your preferred display type for the nav */
-      }
 
       /* Mobile view */
 
@@ -177,9 +194,11 @@
         .nav-menu {
           display: block;
         }
-      }
-
-      @media screen and (max-width: 768px) {
+    }
+    
+    
+    @media screen and (max-width: 768px) {
+        
         .hamburger {
           display: block;
           position: fixed;
@@ -209,7 +228,11 @@
 
         section {
           margin-left: 50px;
+          border-color: brown;
+
         }
+
+
         /* When menu is active */
 
         .active {
@@ -222,6 +245,7 @@
           top: 20px;
           right: 20px;
         }
+
       }
     </style>
   </head>
@@ -229,7 +253,7 @@
     <header>
       <div class="hamburger">&#9776;</div>
       <nav>
-        <a href="index.html" class="menu-item">25 de maio</a>
+        <a href="index.html#Convite" class="menu-item">25 de maio</a>
         <a href="index.html#Informacoesuteis" class="menu-item">Informações úteis</a>
         <a href="index.html#confpres" class="menu-item">Confirmar Presença</a>
         <a href="index.html#gift" class="menu-item">Lista</a>
@@ -237,7 +261,7 @@
     </header>
     <div class="overlay"></div>
 
-    <section>
+    <section id="Convite" >
       <h2>Vamos casar!</h2>
       <img src="wedding_photo.jpeg" alt="Fotografia" />
       <p>
@@ -252,30 +276,37 @@
     </section>
 
     <section id="Informacoesuteis">
-      <h2>Informações Úteis</h2>
-      <div class="subsecao">
-        <h3>
-          Como chegar
-          <!-- <button class="toggle">+</button> -->
-        </h3>
-        <!--<p  class="conteudo" style="display: none;"  </p> -->
-        <p>
-          Igreja Nossa Senhora da Piedade da Merceana: Largo Rainha Dona Leonor
-          8, 2580-087 Aldeia Galega da Merceana
-          <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank"
-            >(mapa)</a
-          >
-        </p>
-      </div>
-      <div class="subsecao">
-        <h3>
-          Dress Code
-          <!--<button class="toggle">+</button></h3> 
-            p class="conteudo" style="display: none;">Fato Escuro                </p> -->
-        </h3>
-        <p>Fato Escuro</p>
-      </div>
-      <!-- Repita para outras subseções -->
+        
+        <h2>Informações Úteis</h2>
+
+        <h3>Como chegar</h3>
+
+        <div class="local-container">            
+            <div class="local">
+                <h5>Casamento</h5>
+
+                <img src="igreja.png" alt="Igreja Nossa Senhora da Piedade">
+                
+                <p>Igreja Nossa Senhora da Piedade da Merceana: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana
+                    <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank">(mapa)</a>
+                </p>
+            </div>
+            <div class="local">
+                <h5>Festa</h5>
+
+                <img src="quinta.jpeg" alt="Igreja Nossa Senhora da Piedade">
+                
+                <p>Quinta dos Plátanos: Largo Rainha Dona Leonor 8, 2580-087 Aldeia Galega da Merceana
+                    <a href="https://maps.app.goo.gl/MAK2X4Uqcm3uLyWt9" target="_blank">(mapa)</a>
+                </p>
+            </div>        
+        </div>
+        
+        <div class="subsecao">
+            <h3>Dress Code</p> 
+            </h3>
+            <p>Fato Escuro</p>
+        </div>
     </section>
 
     <section id="confpres">
@@ -309,7 +340,7 @@
           </select>
         </p>
         <p>
-          <label for="foodRestriction">Possui alguma intolerância ou restrição alimentar?</label>
+          <label for="foodRestriction">Tem alguma restrição alimentar?</label>
           <select id="foodRestriction" name="foodRestriction" class="select-input" required>
             <option value="">Selecione uma opção</option>
             <option value="no">Não</option>
@@ -318,7 +349,7 @@
         </p>
     
         <p id="foodDetails" style="display: none;">
-          <label for="foodDetailsText">Por favor, detalhe suas restrições:</label>
+          <label for="foodDetailsText">Restrições:</label>
           <textarea id="foodDetailsText" name="foodDetailsText" class="mensagem-input"></textarea>
         </p>
     
@@ -357,7 +388,7 @@
       </a>
     </section>
     <footer>
-      <p>&copy; 2024 25maio Maria e Tiago - Todos os direitos reservados</p>
+      <p>&copy; 2024, 25demaio - Todos os direitos reservados</p>
     </footer>
 
     <script
