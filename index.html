@@ -342,8 +342,8 @@
     <section id="confpres">
       <h2>Esperamos poder contar com todos</h2>
       <p>Pedimos que confirmem a presença</p>
-      <form
-        action="https://hooks.zapier.com/hooks/catch/17376544/3azwepy/"
+      <form id="cf"
+        action="https://script.google.com/macros/s/AKfycbycOziSo7DCivOBPE81Uc1-ShOPpB-miSDKfLuB9REFXi_yXZVUWqAuZfIQOjOATuszgw/exec"
         method="post"
       >
         <p>
@@ -501,6 +501,28 @@
         document.getElementById('foodDetails').style.display = style;
       
       });
+
+      $(document).ready(function() {
+        $('#cf').on('submit', function(e) {
+        e.preventDefault(); // Impede a recarga da página
+
+        var formData = $(this).serialize(); // Serializa os dados do formulário
+
+        $.ajax({
+            type: "POST",
+            url: "https://script.google.com/macros/s/AKfycbycOziSo7DCivOBPE81Uc1-ShOPpB-miSDKfLuB9REFXi_yXZVUWqAuZfIQOjOATuszgw/exec",
+            data: formData,
+            success: function(response) {
+                alert("Obrigado pela esposta!"); // Pop-up de agradecimento
+                // Ou, para uma experiência mais rica, considere usar um modal customizado
+            },
+            error: function() {
+                alert("Pedimos desculpa mas houve um erro ao enviar sua resposta. Por favor, tente novamente.");
+            }
+        });
+    });
+});
+
 
     </script>
   </body>
