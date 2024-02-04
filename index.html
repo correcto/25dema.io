@@ -133,7 +133,6 @@
       height: 100px; /* Altura para o campo 'Mensagem' */
       width: 100%; /* Largura para o campo 'Mensagem' */
       overflow-y: auto; /* Adds a vertical scrollbar when needed */
-      padding: 10px;
       border: 1px solid #ccc;
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
       border-radius: 4px;
@@ -168,7 +167,6 @@
     section {
         padding: 20px;
         margin: 0 auto; /* Centraliza a section e remove a margem à esquerda padrão */
-        max-width: 1200px; /* Limita a largura da section */
     }
 
 
@@ -220,7 +218,15 @@
         .nav-menu {
           display: block;
         }
+
+        section {
+            margin-left: 300px; /* Adjust margin to prevent overlap */
+
+        }
     }
+
+
+
     
     
     @media screen and (max-width: 768px) {
@@ -252,10 +258,9 @@
         }
 
         section {
-          margin-left: 50px;
+          padding-left: 0;
 
         }
-
 
         /* When menu is active */
 
@@ -378,13 +383,15 @@
           <textarea id="foodDetailsText" name="foodDetailsText" class="mensagem-input"></textarea>
         </p>
     
-
+        
         <p>
           <label for="Msg">Mensagem:</label>
           <textarea id="Msg" name="Msg" class="mensagem-input"></textarea>
         </p>
 
         <p>
+
+        
           <button type="submit">Enviar RSVP</button>
         </p>
       </form>
