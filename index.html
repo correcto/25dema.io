@@ -199,7 +199,40 @@
 
     }
 
+    .popup-escondido {
+        display: none;
+        position: fixed; /* Fica fixo na tela */
+        z-index: 100; /* Fica acima de outros itens */
+        left: 0;
+        top: 0;
+        width: 100%; /* Largura total */
+        height: 100%; /* Altura total */
+        overflow: auto; /* Habilita scroll se necessário */
+        background-color: rgb(0,0,0); /* Fundo semi-transparente */
+        background-color: rgba(0,0,0,0.4); /* Fundo semi-transparente com transparência */
+    }
 
+    .popup-conteudo {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% do topo e centralizado horizontalmente */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Você pode ajustar a largura */
+    }   
+
+    .popup-fechar {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }   
+
+    .popup-fechar:hover,
+    .popup-fechar:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
     
 
@@ -218,6 +251,7 @@
 
         section {
             margin-left: 300px; /* Adjust margin to prevent overlap */
+            max-width: 1000px;
 
         }
 
@@ -225,14 +259,10 @@
             margin-left: 300px; /* Adjust margin to prevent overlap */
 
         }
-    }
-
-
-
-
-
+    } 
     
-    
+
+
     @media screen and (max-width: 768px) {
         
         .hamburger {
@@ -361,8 +391,7 @@
             id="attendance"
             name="attendance"
             class="select-input"
-            required
-          >
+            required>
             <option value="yes">Sim, estarei lá!</option>
             <option value="no">Infelizmente, não poderei comparecer.</option>
           </select>
@@ -424,6 +453,15 @@
     <footer>
       <p>&copy; 2024, 25demaio - Todos os direitos reservados</p>
     </footer>
+
+    <!-- Popup Alerta -->
+    <div id="popupAlerta" class="popup-escondido">
+        <div class="popup-conteudo">
+            <span class="popup-fechar">&times;</span>
+            <p id="popupMensagem">Mensagem de alerta aqui!</p>
+        </div>
+    </div>
+
 
     <script
       type="text/javascript"
@@ -498,34 +536,50 @@
           });
         });
       });
+
       
       document.getElementById('foodRestriction').addEventListener('change', function() {
         var style = this.value == 'yes' ? 'block' : 'none';
         document.getElementById('foodDetails').style.display = style;
       
       });
-
       $(document).ready(function() {
-    $('#confiii').on('submit', function(e) {
-        e.preventDefault();
-        var originalButtonText = $('#submitButton').text(); // Guardar o texto original do botão
-        $('#submitButton').text('A enviar...').prop('disabled', true); // Alterar texto e desabilitar o botão para prevenir envios múltiplos
-
-        var formData = $(this).serialize();
-        $.ajax({
-            type: "POST",
-            url: "https://script.google.com/macros/s/AKfycbymqJ4pnzTlP7bqEcKRc1RnLnIuYTBRlt2izGyWLajzMTQiLEMzX3PiXMNRF-cNZqmO/exec",
-            data: formData,
-            success: function(response) {
-                $('#submitButton').text(originalButtonText).prop('disabled', false); // Restaurar texto e habilitar botão
-                alert("Obrigado pela sua resposta!");
-            },
-            error: function() {
-                $('#submitButton').text(originalButtonText).prop('disabled', false); // Em caso de erro, também restaurar
-                alert("Pedimos desculpa, mas houve um erro ao enviar sua resposta. Por favor, tente novamente.");
-            }
+        $('#confiii').on('submit', function(e) {
+            e.preventDefault();
+            var originalButtonText = $('#submitButton').text(); // Guardar o texto original do botão
+            
+            $('#submitButton').text('A enviar...').prop('disabled', true); // Alterar texto e desabilitar botão para prevenir envios múltiplos
+            
+            var formData = $(this).serialize();
+            
+            $.ajax({
+                type: "POST",
+                url: "https://script.google.com/macros/s/AKfycbymqJ4pnzTlP7bqEcKRc1RnLnIuYTBRlt2izGyWLajzMTQiLEMzX3PiXMNRF-cNZqmO/exec",
+                data: formData,
+                success: function(response) {
+                    mostrarPopupAlerta("Obrigado pela sua resposta!", true);
+                    $('#submitButton').text(originalButtonText).prop('disabled', false); // Restaurar texto e habilitar botão
+                },
+                
+                error: function() {
+                    mostrarPopupAlerta("Pedimos desculpa, mas houve um erro ao enviar sua resposta. Por favor, tente novamente.", false);
+                    $('#submitButton').text(originalButtonText).prop('disabled', false); // Em caso de erro, também restaurar
+                }
+            });
+        
         });
+
+    // Fechar popup ao clicar em 'x'
+    $('.popup-fechar').click(function() {
+        $('#popupAlerta').hide();
     });
+
+    // Função para mostrar o popup de alerta
+    function mostrarPopupAlerta(mensagem, sucesso) {
+        $('#popupMensagem').text(mensagem);
+        $('#popupAlerta').show();
+    }
+
 
     // Lógica para mostrar/esconder detalhes das restrições alimentares
     $('#foodRestriction').change(function() {
@@ -536,6 +590,7 @@
         }
     });
 });
+
 
 
 
