@@ -339,13 +339,14 @@
         </div>
     </section>
 
+
     <section id="confpres">
       <h2>Esperamos poder contar com todos</h2>
       <p>Pedimos que confirmem a presença</p>
-      <form id="cf"
-        action="https://script.google.com/macros/s/AKfycbycOziSo7DCivOBPE81Uc1-ShOPpB-miSDKfLuB9REFXi_yXZVUWqAuZfIQOjOATuszgw/exec"
-        method="post"
-      >
+      <form 
+      id="confiii"      >
+      <div id="loadingMessage" style="display: none;">Processando, por favor aguarde...</div>
+
         <p>
           <label for="name">Nome*:</label>
           <input
@@ -427,6 +428,7 @@
       type="text/javascript"
       src="https://cdn.emailjs.com/dist/email.min.js"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
       (function () {
         emailjs.init('25deMaio');
@@ -503,25 +505,26 @@
       });
 
       $(document).ready(function() {
-        $('#cf').on('submit', function(e) {
-        e.preventDefault(); // Impede a recarga da página
+        $('#confiii').on('submit', function(e) {
 
-        var formData = $(this).serialize(); // Serializa os dados do formulário
-
-        $.ajax({
-            type: "POST",
-            url: "https://script.google.com/macros/s/AKfycbycOziSo7DCivOBPE81Uc1-ShOPpB-miSDKfLuB9REFXi_yXZVUWqAuZfIQOjOATuszgw/exec",
-            data: formData,
-            success: function(response) {
-                alert("Obrigado pela esposta!"); // Pop-up de agradecimento
-                // Ou, para uma experiência mais rica, considere usar um modal customizado
-            },
+            e.preventDefault();
+            $('#loadingMessage').show();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: "https://script.google.com/macros/s/AKfycbymqJ4pnzTlP7bqEcKRc1RnLnIuYTBRlt2izGyWLajzMTQiLEMzX3PiXMNRF-cNZqmO/exec",
+                data: formData,
+                success: function(response) {
+                    $('#loadingMessage').hide();
+                    alert("Obrigado pela sua resposta!");},
             error: function() {
+                $('#loadingMessage').hide();
                 alert("Pedimos desculpa mas houve um erro ao enviar sua resposta. Por favor, tente novamente.");
             }
         });
     });
 });
+
 
 
     </script>
