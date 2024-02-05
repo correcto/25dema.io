@@ -343,7 +343,6 @@
       <p>Pedimos que confirmem a presença</p>
       <form 
       id="confiii"      >
-      <div id="loadingMessage" style="display: none;">Processando, por favor aguarde...</div>
 
         <p>
           <label for="name">Nome:</label>
@@ -391,7 +390,7 @@
         <p>
 
         
-          <button type="submit">Enviar RSVP</button>
+        <button type="submit" id="submitButton">Enviar RSVP</button>
         </p>
       </form>
     </section>
@@ -507,25 +506,37 @@
       });
 
       $(document).ready(function() {
-        $('#confiii').on('submit', function(e) {
+    $('#confiii').on('submit', function(e) {
+        e.preventDefault();
+        var originalButtonText = $('#submitButton').text(); // Guardar o texto original do botão
+        $('#submitButton').text('A enviar...').prop('disabled', true); // Alterar texto e desabilitar o botão para prevenir envios múltiplos
 
-            e.preventDefault();
-            $('#loadingMessage').show();
-            var formData = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: "https://script.google.com/macros/s/AKfycbymqJ4pnzTlP7bqEcKRc1RnLnIuYTBRlt2izGyWLajzMTQiLEMzX3PiXMNRF-cNZqmO/exec",
-                data: formData,
-                success: function(response) {
-                    $('#loadingMessage').hide();
-                    alert("Obrigado pela sua resposta!");},
+        var formData = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "https://script.google.com/macros/s/AKfycbymqJ4pnzTlP7bqEcKRc1RnLnIuYTBRlt2izGyWLajzMTQiLEMzX3PiXMNRF-cNZqmO/exec",
+            data: formData,
+            success: function(response) {
+                $('#submitButton').text(originalButtonText).prop('disabled', false); // Restaurar texto e habilitar botão
+                alert("Obrigado pela sua resposta!");
+            },
             error: function() {
-                $('#loadingMessage').hide();
-                alert("Pedimos desculpa mas houve um erro ao enviar sua resposta. Por favor, tente novamente.");
+                $('#submitButton').text(originalButtonText).prop('disabled', false); // Em caso de erro, também restaurar
+                alert("Pedimos desculpa, mas houve um erro ao enviar sua resposta. Por favor, tente novamente.");
             }
         });
     });
+
+    // Lógica para mostrar/esconder detalhes das restrições alimentares
+    $('#foodRestriction').change(function() {
+        if ($(this).val() === 'yes') {
+            $('#foodDetails').show();
+        } else {
+            $('#foodDetails').hide();
+        }
+    });
 });
+
 
 
 
