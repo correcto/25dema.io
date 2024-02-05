@@ -1,140 +1,271 @@
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100vh;
-    overflow-y: auto;
-    background-color: #f5f5f5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
+  position: fixed;
+  z-index: 1; /* Make sure nav is above overlay */
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
 }
 
 nav a {
-    display: block;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+}
 
+.overlay {
+  display: none; /* hide overlay by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Cor de fundo preto com opacidade */
 }
 
 
+.overlay.visible {
+  display: block;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+width: 100%;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 header {
-    width: 100%;
-    background-color: none;
-    padding: 20px;
-    box-shadow: none;
+  width: 100%;
+  background-color: none;
+  box-shadow: none;
 }
 
-
 section img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
+  justify-content: center
 }
 
 footer {
-    margin-top: 20px;
+  margin-top: 20px;
 }
-
 
 .caixa {
-    display: inline-block;
-    width: 30%;
-    /*border: 1px solid #ccc;*/
-    background-color: #f5f5f5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-    cursor: pointer;
+  display: inline-block;
+  width: 30%;
+  /*border: 1px solid #ccc;*/
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: #71765f;
+  text-decoration: none 
 }
+
+/*
 .subsecao .conteudo {
-    height: auto; /* Altura inicial */
-    overflow: hidden; /* Esconde o conteúdo extra */
-    text-align: left;
+  height: auto; /* Altura inicial *//*
+  overflow: hidden; /* Esconde o conteúdo extra *//*
+  text-align: left;
 }
 
 .subsecao.expandida .conteudo {
-    height: auto; /* Expande para mostrar todo o conteúdo */
+  height: auto; /* Expande para mostrar todo o conteúdo *//*
 }
+*/
 .toggle {
-    cursor: pointer;
-    font-size: 1.2em;
-    background: none;
-    border: none;
-    padding: 0;
-    margin-left: 10px;
+  cursor: pointer;
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 10px;
 }
-    
+
 .hamburger {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000; /* Certifique-se de que está sobre outros elementos */
+  position: fixed;
+  top: 30px;
+  left: 15px;
+  font-size: 1.1rem;
+  z-index: 1000; /* Certifique-se de que está sobre outros elementos */
 }
-
 .close-btn {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
 }
 
-.blur-content {
-    filter: blur(5px); /* Adjust the level of blur as needed */
+.nome-input {
+  height: 20px; /* Altura para o campo 'Nome' */
+  width: 100%; /* Largura para o campo 'Nome' */
+  /* Outros estilos personalizados podem ser adicionados aqui */
 }
 
-/* Changing the color of the selected menu item */
+.mensagem-input {
+  height: 100px; /* Altura para o campo 'Mensagem' */
+  width: 100%; /* Largura para o campo 'Mensagem' */
+  overflow-y: auto; /* Adds a vertical scrollbar when needed */
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+
+.select-input {
+  height: 20px; /* Altura para a caixa de seleção */
+  width: 100%; /* Largura para a caixa de seleção */
+}
+/* CSS para a classe 'selected-section' */
 .selected-section {
-    color: #71765F; /* Change text color if necessary */
+  color: #71765f; /* Substitua por sua cor desejada */
+  font-weight: bold; /* Apenas um exemplo para destacar o item selecionado */
+}        
+
+.nav-menu .selected-section {
+  color: #71765f;
+}
+/* Style for hidden navigation menu */
+.nav-closed {
+  display: none;
+
+}
+
+/* Style for open navigation menu */
+.nav-open {
+  display: flex; /* or your preferred display type for the nav */
+}
+
+
+.local-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Adjust the gap to your preference */
+}
+
+
+.local {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Define as linhas para título, imagem e descrição */
+    gap: 10px; /* Espaçamento entre os elementos grid */
+    align-items: center; /* Alinha o conteúdo ao topo */
+    text-align: center; /* Centraliza o texto */
 }
 
 
 
-/* Mobile view */
+.local p {
+    font-size: 1.1rem;
+    font-family: Arial, sans-serif;
+    color: #333;    
+}
 
-@media screen and (max-width: 768px) 
-{
+/* Ajusta o tamanho das imagens para não ultrapassarem o contêiner .local */
+.local img {
+    object-fit: cover; /* Ensures the image fills the parent container */
+    max-width: 100%; /* Resizes the image to fit the parent's width */
+    max-height: 100%; /* Resizes the image to fit the parent's height */
+    justify-content: center; /* Aligns the description to the bottom */
+
+}
+
+
+
+
+
+
+
+  /* Mobile view */
+
+  @media screen and (min-width: 768px) {
     .hamburger {
-        display: block;
+      display: none;
     }
-    
-    nav {
-        position: fixed;
-        top: 0;
-        left: -200px; /* Start off-screen */
-        width: 200px;
-        height: 100vh;
-        /* Rest of your styles */
+
+    .nav-menu {
+      display: block;
     }
-    
-    section{
-        margin-left: 50px;
+
+    section {
+        margin-left: 300px; /* Adjust margin to prevent overlap */
+
     }
-    /* When menu is active */
-    
-    .active {
-        left: 0; /* Bring on-screen */
-    }
-    .close-btn {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
+
+    footer {
+        margin-left: 300px; /* Adjust margin to prevent overlap */
+
     }
 }
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    
+    .hamburger {
+      display: block;
+      position: fixed;
+    }
+
+    .nav-menu {
+      display: none;
+      position: fixed;
+    }
+
+    nav {
+      display: block; /* Always display the menu */
+      position: fixed;
+      top: 0;
+      transform: translateX(-100%); /* Hide off-screen */
+      transition: transform 0.3s ease-in-out;
+      left: 0; /* Start off-screen */
+      width: 200px;
+      height: 100vh;
+      /* Rest of your styles */
+    }
+
+    nav.active {
+      transform: translateX(0); /* Show on-screen */
+    }
+
+
+    /* When menu is active */
+
+    .active {
+      left: 0; /* Bring on-screen */
+    }
+
+    .close-btn {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+  }
