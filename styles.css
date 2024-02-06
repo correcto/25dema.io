@@ -192,7 +192,40 @@ footer {
 
 }
 
+.popup-escondido {
+    display: none;
+    position: fixed; /* Fica fixo na tela */
+    z-index: 100; /* Fica acima de outros itens */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita scroll se necessário */
+    background-color: rgb(0,0,0); /* Fundo semi-transparente */
+    background-color: rgba(0,0,0,0.4); /* Fundo semi-transparente com transparência */
+}
 
+.popup-conteudo {
+    background-color: #fefefe;
+    margin: 20% auto; /* 15% do topo e centralizado horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Você pode ajustar a largura */
+}   
+
+.popup-fechar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}   
+
+.popup-fechar:hover,
+.popup-fechar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
 
@@ -211,6 +244,7 @@ footer {
 
     section {
         margin-left: 300px; /* Adjust margin to prevent overlap */
+        max-width: 1000px;
 
     }
 
@@ -218,11 +252,7 @@ footer {
         margin-left: 300px; /* Adjust margin to prevent overlap */
 
     }
-}
-
-
-
-
+} 
 
 
 
