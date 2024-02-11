@@ -284,6 +284,18 @@ footer {
       transform: translateX(0); /* Show on-screen */
     }
 
+    header {
+      position: fixed;
+      top: 0;
+      height: 10%;
+      background-color: white;
+      width: 100%;
+      z-index: 1000;
+    }
+    
+    #Convite {
+      padding-top: 10%; }
+
 
     /* When menu is active */
 
