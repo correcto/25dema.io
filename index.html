@@ -14,7 +14,7 @@
         <a href="index.html#Convite" class="menu-item">25 de maio</a>
         <a href="index.html#Informacoesuteis" class="menu-item">Como chegar</a>
         <a href="index.html#confpres" class="menu-item">Confirmar Presença</a>
-        <a href="index.html#gift" class="menu-item">Lista</a>
+        <a href="index.html#gift" class="menu-item">Lista de Casamento</a>
       </nav>
     </header>
     <div class="overlay"></div>
@@ -28,7 +28,7 @@
         contar com todos para celebrarmos juntos!
       </p>
       <p>
-        Vamos casar <b>dia 25 de maio às 16h na Igreja Nossa Senhora da Piedade da
+        Vamos casar dia <b>25 de maio</b> às <b>16h</b> na <b>Igreja Nossa Senhora da Piedade da
         Merceana</b> seguindo-se a festa na Quinta dos Plátanos.
       </p>
     </section>
@@ -85,7 +85,7 @@
         </p>
 
         <p>
-          <label for="attendance">Confirma Presença?</label>
+          <label for="attendance">Confirma a presença?</label>
           <select
             id="attendance"
             name="attendance"
@@ -96,9 +96,9 @@
             <option value="no">Não</option>
           </select>
         </p>
-        <p>
+        <p id="foodRestrictionP" style="display: none">
           <label for="foodRestriction">Tem alguma restrição alimentar?</label>
-          <select id="foodRestriction" name="foodRestriction" class="select-input" style="display: none" >
+          <select id="foodRestriction" name="foodRestriction" class="select-input" >
             <option value="">Selecione uma opção</option>
             <option value="no">Não</option>
             <option value="yes">Sim</option>
@@ -125,16 +125,14 @@
     </section>
 
     <section id="gift">
-      <h2>Lista</h2>
+      <h2>Lista de Casamento</h2>
 
       <p>
-        Aqui deixamos uma lista de presentes para a nossa casa onde esperamos
-        receber-vos, mas primeiro gostávamos muito de passar a nossa lua de mel em São Tomé e Principe.<br/>
-      
+        Deixamos aqui uma lista de presentes para a nossa casa, onde esperamos receber-vos. Também gostávamos muito de começar esta nova fase da nossa vida com uma viagem a São Tomé e Príncipe.
+              
       </p>
       <p>
-        Para oferecer um presente basta seguir as indicações.<br />
-        Muito obrigado!
+        Para oferecer um presente para a nossa casa ou contribuir para a nossa lua de mel escolha uma das opções:<br />
       </p>
 
 
@@ -147,6 +145,11 @@
       <a href="servico.html" class="caixa">
         <h3>CASA</h3>
       </a>
+
+      <p>
+        Muito obrigado!
+      </p>
+
 
       
     </section>
@@ -280,9 +283,9 @@
     // Lógica para mostrar/esconder detalhes das restrições alimentares
     $('#attendance').change(function() {
         if ($(this).val() === 'yes') {
-            $('#foodRestriction').show().attr('required', true);
+            $('#foodRestrictionP').show().attr('required', true);
         } else {
-            $('#foodRestriction').hide().removeAttr('required').val('');
+            $('#foodRestrictionP').hide().removeAttr('required').val('');
         }
     });
 
