@@ -284,6 +284,8 @@ footer {
       left: 0; /* Start off-screen */
       width: 100%;
       height: 100%;
+      margin-top: 0;
+      padding-top: 20px;
       /* Rest of your styles */
     }
 
@@ -311,7 +313,7 @@ footer {
   
     
     section {
-      padding-top: 10%; }
+      padding-top: 65px; }
 
 
     /* When menu is active */
