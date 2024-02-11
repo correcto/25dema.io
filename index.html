@@ -84,19 +84,20 @@
         </p>
 
         <p>
-          <label for="attendance">Confirmar Presença:</label>
+          <label for="attendance">Confirma Presença?</label>
           <select
             id="attendance"
             name="attendance"
             class="select-input"
             required>
-            <option value="yes">Sim, estarei lá!</option>
-            <option value="no">Infelizmente, não poderei comparecer.</option>
+            <option value="">Selecione uma opção</option>
+            <option value="yes">Sim</option>
+            <option value="no">Não</option>
           </select>
         </p>
         <p>
           <label for="foodRestriction">Tem alguma restrição alimentar?</label>
-          <select id="foodRestriction" name="foodRestriction" class="select-input" required>
+          <select id="foodRestriction" name="foodRestriction" class="select-input" style="display: none" >
             <option value="">Selecione uma opção</option>
             <option value="no">Não</option>
             <option value="yes">Sim</option>
@@ -236,11 +237,7 @@
       });
 
       
-      document.getElementById('foodRestriction').addEventListener('change', function() {
-        var style = this.value == 'yes' ? 'block' : 'none';
-        document.getElementById('foodDetails').style.display = style;
-      
-      });
+      ;
       $(document).ready(function() {
         $('#confiii').on('submit', function(e) {
             e.preventDefault();
@@ -280,15 +277,22 @@
 
 
     // Lógica para mostrar/esconder detalhes das restrições alimentares
+    $('#attendance').change(function() {
+        if ($(this).val() === 'yes') {
+            $('#foodRestriction').show().attr('required', true);
+        } else {
+            $('#foodRestriction').hide().removeAttr('required').val('');
+        }
+    });
+
     $('#foodRestriction').change(function() {
         if ($(this).val() === 'yes') {
-            $('#foodDetails').show();
+            $('#foodDetails').show().attr('required', true);
         } else {
-            $('#foodDetails').hide();
+            $('#foodDetails').hide().removeAttr('required').val(''); // Reset the textarea if foodRestriction is not 'yes'
         }
     });
 });
-
 
 
 
