@@ -63,6 +63,17 @@ header {
   box-shadow: none;
 }
 
+header h1 {
+  display: none; /* Hide the h1 by default */
+  margin: 0; /* Removes default margin */
+  padding: 30px 0; /* Adds some padding above and below the title */
+  padding-right: 10px;  
+  font-size: 1.1rem; /* Adjust the size as needed */
+  color: #333; /* Adjust the color as needed */
+  text-align: right; /* Centers the title */
+}
+
+
 section img {
   max-width: 100%;
   height: auto;
@@ -287,11 +298,18 @@ footer {
     header {
       position: fixed;
       top: 0;
-      height: 10%;
-      background-color: white;
+      height: 8%;
+      background-color: #f5f5f5;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       width: 100%;
       z-index: 1000;
     }
+    
+
+    header h1 {
+      display: block; /* Show the h1 */
+    }
+  
     
     #Convite {
       padding-top: 10%; }
