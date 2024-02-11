@@ -311,7 +311,9 @@ footer {
       display: block; /* Show the h1 */
     }
   
-    
+    body {
+      padding-top: 0px; }
+
     section {
       padding-top: 65px; }
 
