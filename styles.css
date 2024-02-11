@@ -280,7 +280,7 @@ footer {
       padding-top: 0;
       transform: translateX(-100%); /* Hide off-screen */
       transition: transform 0.3s ease-in-out;
-      top:0
+      top:0;
       left: 0; /* Start off-screen */
       width: 100%;
       height: 100%;
