@@ -144,7 +144,16 @@ footer {
   height: 20px; /* Altura para a caixa de seleção */
   width: 100%; /* Largura para a caixa de seleção */
 }
-/* CSS para a classe 'selected-section' */
+
+#foodRestrictionP{
+  display: none;
+}
+
+#foodDetails{
+  display: none;
+}
+
+
 .selected-section {
   color: #71765f; /* Substitua por sua cor desejada */
   font-weight: bold; /* Apenas um exemplo para destacar o item selecionado */
@@ -166,19 +175,33 @@ footer {
 
 
 .local-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; /* Adjust the gap to your preference */
-}
+    display: flex;
+  flex-wrap: wrap;}
 
 
 .local {
+  flex: 1 1 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Define as linhas para título, imagem e descrição */
+  gap: 10px; /* Espaçamento entre os elementos grid */
+  align-items: center; /* Alinha o conteúdo ao topo */
+  text-align: center; /* Centraliza o texto */
+}
+
+
+/* Media Query para telas com largura maior que 250 pixels */
+@media (min-width: 800px) {
+  .local {
+    flex: 1 1 50%; /* Em telas maiores, cada item ocupa 50% da largura do contêiner (2 colunas) */
     display: grid;
     grid-template-rows: auto 1fr auto; /* Define as linhas para título, imagem e descrição */
     gap: 10px; /* Espaçamento entre os elementos grid */
     align-items: center; /* Alinha o conteúdo ao topo */
     text-align: center; /* Centraliza o texto */
+  
+  }
 }
+
 
 
 
