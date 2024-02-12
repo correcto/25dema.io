@@ -286,6 +286,10 @@
             $('#foodRestrictionP').show().attr('required', true);
         } else {
             $('#foodRestrictionP').hide().removeAttr('required').val('');
+            $('#foodDetails').hide().removeAttr('required').val(''); // Reset the textarea if foodRestriction is not 'yes'
+
+            
+
         }
     });
 
