@@ -76,7 +76,14 @@ section img {
 
 footer {
   margin-top: 20px;
+  margin-left: 300px; /* Adjust margin to prevent overlap */
 }
+
+footer p {
+  font-size:xx-small;
+
+}
+
 
 .caixa {
   display: inline-block;
@@ -308,11 +315,6 @@ section {
     section {
         margin-left: 300px; /* Adjust margin to prevent overlap */
         max-width: 1000px;
-
-    }
-
-    footer {
-        margin-left: 300px; /* Adjust margin to prevent overlap */
 
     }
 } 
