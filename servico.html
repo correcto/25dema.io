@@ -19,6 +19,8 @@
         justify-content: space-between;
         grid-auto-rows: minmax(100px, auto); /* Sets a minimum row height */
         gap: 1rem; /* Adjust the gap to your preference */
+        padding-top: 70px;
+
     }
     
     @media (max-width: 1024px) {
@@ -37,6 +39,7 @@
                 1fr
                 ); /* Two columns for smaller screens */
             }
+
         }
         
         .gallery-item {
@@ -71,11 +74,27 @@
             font-size: 40px;
             top: 10px;
             left: 15px;
+            color: black;
         }
+
+        header {
+          width: 100%;
+          display: block;
+          position: fixed;
+          height: 65px;
+          top: 0;
+          left: 0;
+          align-items: center;
+          background-color: white;
+          justify-content: space-between; /* Esta linha é opcional, dependendo do layout desejado */
+          z-index: 1001; /* Garante que o cabeçalho fique acima do hambúrguer */
+        }
+
     </style>
   </head>
   <header>
     <a href="index.html" class="home-icon" title="Voltar para a página principal">&#8962;</a>
+    
 
   </header>  
   <body>
