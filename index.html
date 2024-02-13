@@ -279,6 +279,14 @@
         $('#popupAlerta').show();
     }
 
+    $(document).mouseup(function(e) {
+    var popupConteudo = $("#popupAlerta .popup-conteudo"); // Seleciona o conteúdo interno do pop-up
+
+    // Verifica se o clique foi fora do conteúdo do pop-up (no overlay)
+    if (!popupConteudo.is(e.target) && popupConteudo.has(e.target).length === 0) {
+        $("#popupAlerta").hide(); // Esconde o overlay e o pop-up
+    }
+});
 
     // Lógica para mostrar/esconder detalhes das restrições alimentares
     $('#attendance').change(function() {
