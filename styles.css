@@ -76,7 +76,6 @@ section img {
 
 footer {
   margin-top: 20px;
-  margin-left: 300px; /* Adjust margin to prevent overlap */
 }
 
 footer p {
@@ -317,7 +316,13 @@ section {
         max-width: 1000px;
 
     }
-} 
+
+    footer {
+      margin-left: 300px; /* Adjust margin to prevent overlap */
+    }
+    
+}
+
 
 
 
