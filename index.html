@@ -258,11 +258,15 @@
                 success: function(response) {
                     mostrarPopupAlerta("Resposta enviada, obrigado.", true);
                     $('#submitButton').text(originalButtonText).prop('disabled', false); // Restaurar texto e habilitar botão
+                    $('#confiii')[0].reset();
+
                 },
                 
                 error: function() {
                     mostrarPopupAlerta("Pedimos desculpa, mas houve um erro ao enviar sua resposta. Por favor, tente novamente.", false);
                     $('#submitButton').text(originalButtonText).prop('disabled', false); // Em caso de erro, também restaurar
+                    $('#confiii')[0].reset();
+
                 }
             });
         
