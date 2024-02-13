@@ -59,24 +59,24 @@
     .popup-escondido {
         display: none;
         position: fixed; /* Fica fixo na tela */
-        z-index: 100; /* Fica acima de outros itens */
+        z-index: 0; /* Fica acima de outros itens */
         left: 0;
         top: 0;
         width: 100%; /* Largura total */
-        height: 100%; /* Altura total */
+        /*height: 100%; /* Altura total */
         overflow: auto; /* Habilita scroll se necessário */
         background-color: rgb(0,0,0); /* Fundo semi-transparente */
         background-color: rgba(0,0,0,0.4); /* Fundo semi-transparente com transparência */
     }
+
     .popup-conteudo {
         background-color: #fefefe;
-        /*margin: 30% auto; /* 15% do topo e centralizado horizontalmente */
+        margin: 20% auto; /* 15% do topo e centralizado horizontalmente */
         padding: 20px;
-        top: 50%;
-        transform: translate(-50%, -50%); /* Centraliza o pop-up */
         border: 1px solid #888;
         width: 80%; /* Você pode ajustar a largura */
     }   
+    
     .popup-fechar {
         color: #aaa;
         float: right;
