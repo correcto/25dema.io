@@ -8,173 +8,171 @@
     />
     <title>Lista de Casamento</title>
     <style>
-    
-    .main-content {
+      .main-content {
         margin-top: 50px; /* Ajuste este valor conforme necessário */
-    }
+      }
 
-    .gallery {
+      .gallery {
         display: grid;
         grid-template-columns: repeat(4, 1fr); /* Creates a 4 layout */
         justify-content: space-between;
         grid-auto-rows: minmax(100px, auto); /* Sets a minimum row height */
         gap: 1rem; /* Adjust the gap to your preference */
         padding-top: 70px;
+      }
 
-    }
-    
-    @media (max-width: 1024px) {
+      @media (max-width: 1024px) {
         .gallery {
-            grid-template-columns: repeat(
-                3,
-                1fr
-                ); /* Creates a three-column layout */
-            }
+          grid-template-columns: repeat(
+            3,
+            1fr
+          ); /* Creates a three-column layout */
         }
-    
-    @media (max-width: 768px) {
+      }
+
+      @media (max-width: 768px) {
         .gallery {
-            grid-template-columns: repeat(
-                2,
-                1fr
-                ); /* Two columns for smaller screens */
-            }
+          grid-template-columns: repeat(
+            2,
+            1fr
+          ); /* Two columns for smaller screens */
+        }
+      }
 
-        }
-        
-        .gallery-item {
-            display: flex;
-            flex-direction: column;
-            margin: 5px;
-            justify-content: flex-end; /* Aligns the description to the bottom */
-        }
-        
-        
-        .gallery-item img {
-            object-fit: cover; /* Ensures the image fills the parent container */
-            max-width: 100%; /* Resizes the image to fit the parent's width */
-            max-height: 100%; /* Resizes the image to fit the parent's height */
-        }
-        
-        .gallery-item a {
-            display: inline-block; /* Faz o link se ajustar ao tamanho da imagem */
-            margin-bottom: 5px; /* Espaço entre a imagem e o texto */
-        }
-        
-        .gallery-item p {
-            margin: 0;
-            font-size: 1.1rem;
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
-        
-        .home-icon {
-            position: fixed;
-            text-decoration: none;
-            font-size: 40px;
-            top: 10px;
-            left: 15px;
-            color: black;
-        }
+      .gallery-item {
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+        justify-content: flex-end; /* Aligns the description to the bottom */
+      }
 
-        header {
-          width: 100%;
-          display: block;
-          position: fixed;
-          height: 65px;
-          top: 0;
-          left: 0;
-          align-items: center;
-          background-color: white;
-          justify-content: space-between; /* Esta linha é opcional, dependendo do layout desejado */
-          z-index: 1001; /* Garante que o cabeçalho fique acima do hambúrguer */
-        }
+      .gallery-item img {
+        object-fit: cover; /* Ensures the image fills the parent container */
+        max-width: 100%; /* Resizes the image to fit the parent's width */
+        max-height: 100%; /* Resizes the image to fit the parent's height */
+      }
 
+      .gallery-item a {
+        display: inline-block; /* Faz o link se ajustar ao tamanho da imagem */
+        margin-bottom: 5px; /* Espaço entre a imagem e o texto */
+      }
+
+      .gallery-item p {
+        margin: 0;
+        font-size: 1.1rem;
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+
+      .home-icon {
+        position: fixed;
+        text-decoration: none;
+        font-size: 40px;
+        top: 10px;
+        left: 15px;
+        color: black;
+      }
+
+      header {
+        width: 100%;
+        display: block;
+        position: fixed;
+        height: 65px;
+        top: 0;
+        left: 0;
+        align-items: center;
+        background-color: white;
+        justify-content: space-between; /* Esta linha é opcional, dependendo do layout desejado */
+        z-index: 1001; /* Garante que o cabeçalho fique acima do hambúrguer */
+      }
     </style>
   </head>
   <header>
-    <a href="index.html" class="home-icon" title="Voltar para a página principal">&#8962;</a>
-    
-
-  </header>  
+    <a
+      href="index.html"
+      class="home-icon"
+      title="Voltar para a página principal"
+      >&#8962;</a
+    >
+  </header>
   <body>
     <div class="gallery"></div>
 
     <script>
+      const imgPath = 'assets/images';
       // Data array
       const galleryItems = [
         {
-          image: 'lista_images/prato_jantar.jpeg',
+          image: `${imgPath}/prato_jantar.jpeg`,
           description: '14 pratos de jantar',
           price: '182 euros',
-          href: 'gift.html?presente=Pratos%20de%20jantar'
-
+          href: 'gift.html?presente=Pratos%20de%20jantar',
         },
         {
-          image: 'lista_images/prato_sopa.jpeg',
+          image: `${imgPath}/prato_sopa.jpeg`,
           description: '14 pratos de sopa',
           price: '175 euros',
-          href: 'gift.html?presente=Pratos%20de%20sopa'
+          href: 'gift.html?presente=Pratos%20de%20sopa',
         },
         {
-          image: 'lista_images/prato_sobremesa.jpeg',
+          image: `${imgPath}/prato_sobremesa.jpeg`,
           description: '14 pratos de sobremesa',
           price: '154 euros',
-          href: 'gift.html?presente=Pratos%20de%20sobremesa'
+          href: 'gift.html?presente=Pratos%20de%20sobremesa',
         },
         {
-          image: 'lista_images/assadeira.jpeg',
+          image: `${imgPath}/assadeira.jpeg`,
           description: '2 assadeiras',
           price: '91 euros',
-          href: 'gift.html?presente=Assadeiras'
+          href: 'gift.html?presente=Assadeiras',
         },
         {
-          image: 'lista_images/saladeira.jpeg',
+          image: `${imgPath}/saladeira.jpeg`,
           description: '2 saladeiras',
           price: '75 euros',
-          href: 'gift.html?presente=Saladeiras'
+          href: 'gift.html?presente=Saladeiras',
         },
         {
-          image: 'lista_images/travessa.jpeg',
+          image: `${imgPath}/travessa.jpeg`,
           description: '2 travessas',
           price: '67 euros',
-          href: 'gift.html?presente=Travessas'
+          href: 'gift.html?presente=Travessas',
         },
         {
-          image: 'lista_images/faqueiro.jpeg',
+          image: `${imgPath}/faqueiro.jpeg`,
           description: 'faqueiro',
           price: '1000 euros - 10 frações de 100 euros',
-          href: 'gift.html?presente=Fracção do faqueiro'
+          href: 'gift.html?presente=Fracção do faqueiro',
         },
         {
-          image: 'lista_images/cadeiras.jpeg',
+          image: `${imgPath}/cadeiras.jpeg`,
           description: '2x cadeira',
           price: '220 euros cada',
-          href: 'gift.html?presente=Cadeira'
+          href: 'gift.html?presente=Cadeira',
         },
         {
-          image: 'lista_images/sofa_cama.jpeg',
+          image: `${imgPath}/sofa_cama.jpeg`,
           description: 'sofá cama',
           price: '279 euros',
-          href: 'gift.html?presente=Sofá cama'
+          href: 'gift.html?presente=Sofá cama',
         },
         {
-          image: 'lista_images/candeeiro.png',
+          image: `${imgPath}/candeeiro.png`,
           description: 'candeeiro de pé',
           price: '685 euros - 5 frações de 137 euros',
-          href: 'gift.html?presente=Candeeiro%20de%20pé'
+          href: 'gift.html?presente=Candeeiro%20de%20pé',
         },
         {
-          image: 'lista_images/candeeiro_de_mesa.png',
+          image: `${imgPath}/candeeiro_de_mesa.png`,
           description: 'candeeiro de mesa',
           price: '200 euros',
-          href: 'gift.html?presente=Candeeiro%20de%20mesa'
+          href: 'gift.html?presente=Candeeiro%20de%20mesa',
         },
         {
-          image: 'lista_images/secretaria.jpg',
+          image: `${imgPath}/secretaria.jpg`,
           description: 'secretária',
           price: '1700 euros - 10 frações de 170 euros',
-          href: 'gift.html?presente=Secretária'
+          href: 'gift.html?presente=Secretária',
         },
 
         // ... more items
