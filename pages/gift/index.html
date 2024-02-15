@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Obrigado!</title>
+  </head>
+  <header>
+    <a
+      href="../../index.html"
+      class="home-icon"
+      title="Voltar para a página principal"
+      >&#8962;</a
+    >
+  </header>
+
+  <body>
+    <!-- Adicione um formulário de presente -->
+    <div class="content">
+      <h2>Presente escolhido, muito obrigado!</h2>
+      <p>
+        Para oferecer ou contribuir para este presente, por favor, transfira o
+        valor para o IBAN xxxx e preencha os campos abaixo para podermos
+        agradecer.
+      </p>
+
+      <form id="formpres">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" class="nome-input" required />
+        <p></p>
+        <label for="gift">Presente:</label>
+        <input type="text" id="gift" name="gift" class="gift-input" required />
+        <p></p>
+        <label for="Msg">Mensagem:</label>
+        <textarea id="Msg" name="Msg" class="mensagem-input"></textarea>
+        <p></p>
+        <button type="submit" id="submitButton">Enviar Mensagem</button>
+      </form>
+    </div>
+
+    <div id="popupAlerta" class="popup-escondido">
+      <div class="popup-conteudo">
+        <span class="popup-fechar">&times;</span>
+        <p id="popupMensagem">Mensagem de alerta aqui!</p>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="gift.js"></script>
+  </body>
+</html>
