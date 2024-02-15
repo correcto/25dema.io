@@ -1,0 +1,260 @@
+<!-- gift.html -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obrigado!</title>
+    <style>
+      body {
+        width: 100%;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .content {
+        width: min(95%, 800px);
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      #formpres {
+        width: 100%; /* Garante que o formulário ocupe a largura total do contêiner pai */
+        max-width: 600px; /* ou a largura máxima desejada */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nome-input,
+      .gift-input {
+        height: 20px; /* Altura para o campo 'Nome' */
+        width: 90%; /* Largura para o campo 'Nome' */
+        /* Outros estilos personalizados podem ser adicionados aqui */
+      }
+
+      .mensagem-input {
+        height: 100px; /* Altura para o campo 'Mensagem' */
+        width: 90%; /* Largura para o campo 'Mensagem' */
+        overflow-y: auto; /* Adds a vertical scrollbar when needed */
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+      }
+
+      .popup-escondido {
+        display: none;
+        position: fixed; /* Fica fixo na tela */
+        z-index: 0; /* Fica acima de outros itens */
+        left: 0;
+        top: 0;
+        width: 100%; /* Largura total */
+        /*height: 100%; /* Altura total */
+        overflow: auto; /* Habilita scroll se necessário */
+        background-color: rgb(0, 0, 0); /* Fundo semi-transparente */
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.4
+        ); /* Fundo semi-transparente com transparência */
+      }
+
+      .popup-conteudo {
+        background-color: #fefefe;
+        margin: 20% auto; /* 15% do topo e centralizado horizontalmente */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Você pode ajustar a largura */
+      }
+
+      .popup-fechar {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .popup-fechar:hover,
+      .popup-fechar:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      #submitButton {
+        display: inline-block;
+        width: 30%;
+        /*border: 1px solid #ccc;*/
+        background-color: #f5f5f5;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        cursor: pointer;
+        color: #71765f;
+        text-decoration: none;
+        border: none;
+      }
+
+      @media (max-width: 768px) {
+        body,
+        .content,
+        #formpres {
+          width: 100%;
+        }
+      }
+
+      .home-icon {
+        position: fixed;
+        text-decoration: none;
+        font-size: 40px;
+        top: 10px;
+        left: 15px;
+        color: black;
+      }
+
+      header {
+        width: 100%;
+        display: block;
+        position: fixed;
+        height: 65px;
+        top: 0;
+        left: 0;
+        align-items: center;
+        background-color: white;
+        justify-content: space-between; /* Esta linha é opcional, dependendo do layout desejado */
+        z-index: 1001; /* Garante que o cabeçalho fique acima do hambúrguer */
+      }
+    </style>
+  </head>
+  <header>
+    <a
+      href="../index.html"
+      class="home-icon"
+      title="Voltar para a página principal"
+      >&#8962;</a
+    >
+  </header>
+
+  <body>
+    <!-- Adicione um formulário de presente -->
+    <div class="content">
+      <h2>Presente escolhido, muito obrigado!</h2>
+      <p>
+        Para oferecer ou contribuir para este presente, por favor, transfira o
+        valor para o IBAN xxxx e preencha os campos abaixo para podermos
+        agradecer.
+      </p>
+
+      <form id="formpres">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" class="nome-input" required />
+        <p></p>
+        <label for="gift">Presente:</label>
+        <input type="text" id="gift" name="gift" class="gift-input" required />
+        <p></p>
+        <label for="Msg">Mensagem:</label>
+        <textarea id="Msg" name="Msg" class="mensagem-input"></textarea>
+        <p></p>
+        <button type="submit" id="submitButton">Enviar Mensagem</button>
+      </form>
+    </div>
+
+    <div id="popupAlerta" class="popup-escondido">
+      <div class="popup-conteudo">
+        <span class="popup-fechar">&times;</span>
+        <p id="popupMensagem">Mensagem de alerta aqui!</p>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.emailjs.com/dist/email.min.js"
+    ></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init('25deMaio');
+      })();
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#formpres').on('submit', function (e) {
+          e.preventDefault();
+          var originalButtonText = $('#submitButton').text(); // Guardar o texto original do botão
+
+          $('#submitButton').text('A enviar...').prop('disabled', true); // Alterar texto e desabilitar botão para prevenir envios múltiplos
+
+          var formData = $(this).serialize();
+
+          $.ajax({
+            type: 'POST',
+            url: 'https://script.google.com/macros/s/AKfycbzDpTuAnLSrBmhzmkBUfw25QL4ULLzMIoypg8mQVC-pwSow0b07y8gSRSMzPBf9Kxo8/exec',
+            data: formData,
+            success: function (response) {
+              mostrarPopupAlerta('Mensagem recebida, obrigada!', true);
+              $('#submitButton')
+                .text(originalButtonText)
+                .prop('disabled', false); // Restaurar texto e habilitar botão
+              $('#formpres')[0].reset();
+            },
+
+            error: function () {
+              mostrarPopupAlerta(
+                'Pedimos desculpa, mas houve um erro ao enviar sua resposta. Por favor, tente novamente.',
+                false
+              );
+              $('#submitButton')
+                .text(originalButtonText)
+                .prop('disabled', false); // Em caso de erro, também restaurar
+              $('#formpres')[0].reset();
+            },
+          });
+        });
+
+        // Fechar popup ao clicar em 'x'
+
+        $('.popup-fechar').click(function () {
+          $('#popupAlerta').hide();
+        });
+
+        // Função para mostrar o popup de alerta
+
+        function mostrarPopupAlerta(mensagem, sucesso) {
+          $('#popupMensagem').text(mensagem);
+          $('#popupAlerta').show();
+        }
+
+        $(document).mouseup(function (e) {
+          var popupConteudo = $('#popupAlerta .popup-conteudo'); // Seleciona o conteúdo interno do pop-up
+
+          // Verifica se o clique foi fora do conteúdo do pop-up (no overlay)
+          if (
+            !popupConteudo.is(e.target) &&
+            popupConteudo.has(e.target).length === 0
+          ) {
+            $('#popupAlerta').hide(); // Esconde o overlay e o pop-up
+          }
+        });
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var params = new URLSearchParams(window.location.search);
+        var presente = params.get('presente');
+        if (presente) {
+          document.getElementById('gift').value = decodeURIComponent(presente);
+        }
+      });
+    </script>
+  </body>
+</html>
