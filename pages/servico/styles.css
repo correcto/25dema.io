@@ -1,0 +1,71 @@
+.main-content {
+  margin-top: 50px; /* Ajuste este valor conforme necessário */
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates a 4 layout */
+  justify-content: space-between;
+  grid-auto-rows: minmax(100px, auto); /* Sets a minimum row height */
+  gap: 1rem; /* Adjust the gap to your preference */
+  padding-top: 70px;
+}
+
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr); /* Creates a three-column layout */
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
+  }
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  justify-content: flex-end; /* Aligns the description to the bottom */
+}
+
+.gallery-item img {
+  object-fit: cover; /* Ensures the image fills the parent container */
+  max-width: 100%; /* Resizes the image to fit the parent's width */
+  max-height: 100%; /* Resizes the image to fit the parent's height */
+}
+
+.gallery-item a {
+  display: inline-block; /* Faz o link se ajustar ao tamanho da imagem */
+  margin-bottom: 5px; /* Espaço entre a imagem e o texto */
+}
+
+.gallery-item p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.home-icon {
+  position: fixed;
+  text-decoration: none;
+  font-size: 40px;
+  top: 10px;
+  left: 15px;
+  color: black;
+}
+
+header {
+  width: 100%;
+  display: block;
+  position: fixed;
+  height: 65px;
+  top: 0;
+  left: 0;
+  align-items: center;
+  background-color: white;
+  justify-content: space-between; /* Esta linha é opcional, dependendo do layout desejado */
+  z-index: 1001; /* Garante que o cabeçalho fique acima do hambúrguer */
+}
