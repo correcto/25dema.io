@@ -44,8 +44,12 @@
 .gallery-item p {
   margin: 0;
   font-size: 1.1rem;
-  font-family: Arial, sans-serif;
-  color: #333;
+  font-family: 'Times New Roman', serif;
+  font-kerning: normal;
+  letter-spacing: 0.1rem; /* Tracking is set to 0 pt, which is the default */
+  font-variant-ligatures: common-ligatures; /* This is usually the default setting for OpenType fonts */
+  font-weight: normal; /* Ensures the text is not bold */
+    color: #333;
 }
 
 .home-icon {

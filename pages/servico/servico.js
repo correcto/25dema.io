@@ -5,19 +5,19 @@ const galleryItems = [
   {
     image: `${imgPath}/prato_jantar.jpeg`,
     description: `14 pratos de jantar`,
-    price: `182 euros`,
+    price: `186 euros`,
     href: `${hrefBasePath}?presente=Pratos%20de%20jantar`,
   },
   {
     image: `${imgPath}/prato_sopa.jpeg`,
     description: `14 pratos de sopa`,
-    price: `175 euros`,
+    price: `180 euros`,
     href: `${hrefBasePath}?presente=Pratos%20de%20sopa`,
   },
   {
     image: `${imgPath}/prato_sobremesa.jpeg`,
     description: `14 pratos de sobremesa`,
-    price: `154 euros`,
+    price: `160 euros`,
     href: `${hrefBasePath}?presente=Pratos%20de%20sobremesa`,
   },
   {
@@ -29,31 +29,56 @@ const galleryItems = [
   {
     image: `${imgPath}/saladeira.jpeg`,
     description: `2 saladeiras`,
-    price: `75 euros`,
+    price: `77 euros`,
     href: `${hrefBasePath}?presente=Saladeiras`,
   },
   {
     image: `${imgPath}/travessa.jpeg`,
     description: `2 travessas`,
-    price: `67 euros`,
+    price: `70 euros`,
     href: `${hrefBasePath}?presente=Travessas`,
   },
+
+  {
+    image: `${imgPath}/chavenas.jpeg`,
+    description: `14 chavenas de café`,
+    price: `193 euros`,
+    href: `${hrefBasePath}?presente=Chavenas%de%café`,
+  },
+
+  
   {
     image: `${imgPath}/faqueiro.jpeg`,
     description: `faqueiro`,
     price: `1000 euros - 10 frações de 100 euros`,
-    href: `${hrefBasePath}?presente=Fracção do faqueiro`,
+    href: `${hrefBasePath}?presente=Fracção%do%faqueiro`,
   },
+
   {
-    image: `${imgPath}/cadeiras.jpeg`,
-    description: `2x cadeira`,
-    price: `220 euros cada`,
-    href: `${hrefBasePath}?presente=Cadeira`,
+    image: `${imgPath}/apadador.jpeg`,
+    description: `aparador`,
+    price: `1000 euros - 5 frações de 200 euros`,
+    href: `${hrefBasePath}?presente=Aparador`,
+  },
+
+
+  {
+    image: `${imgPath}/secretaria.jpg`,
+    description: `secretária`,
+    price: `1700 euros - 10 frações de 170 euros`,
+    href: `${hrefBasePath}?presente=Secretária`,
+  },
+
+  {
+    image: `${imgPath}/cadeirao.png`,
+    description: `poltrona`,
+    price: `300 euros`,
+    href: `${hrefBasePath}?presente=Cadeirão`,
   },
   {
     image: `${imgPath}/sofa_cama.jpeg`,
     description: `sofá cama`,
-    price: `279 euros`,
+    price: `280 euros`,
     href: `${hrefBasePath}?presente=Sofá cama`,
   },
   {
@@ -65,15 +90,17 @@ const galleryItems = [
   {
     image: `${imgPath}/candeeiro_de_mesa.png`,
     description: `candeeiro de mesa`,
-    price: `200 euros`,
+    price: `255 euros`,
     href: `${hrefBasePath}?presente=Candeeiro%20de%20mesa`,
   },
+
   {
-    image: `${imgPath}/secretaria.jpg`,
-    description: `secretária`,
-    price: `1700 euros - 10 frações de 170 euros`,
-    href: `${hrefBasePath}?presente=Secretária`,
+    image: `${imgPath}/processador.jpeg`,
+    description: `processador de alimentos`,
+    price: `255 euros`,
+    href: `${hrefBasePath}?presente=Processador%de%alimentos`,
   },
+
 ];
 
 // Function to create a gallery item

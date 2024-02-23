@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'POST',
-      url: 'https://script.google.com/macros/s/AKfycbzDpTuAnLSrBmhzmkBUfw25QL4ULLzMIoypg8mQVC-pwSow0b07y8gSRSMzPBf9Kxo8/exec',
+      url: 'https://script.google.com/macros/s/AKfycbxugxI5zc_PZH1QcODNdWwngC4Ixzm3RVNiwo0Jxq_fxaHka8U6cb8dj6yZCZwi_JPZ/exec',
       data: formData,
       success: function (response) {
         mostrarPopupAlerta('Mensagem recebida, obrigada!', true);
