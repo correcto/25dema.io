@@ -50,14 +50,14 @@ const galleryItems = [
   {
     image: `${imgPath}/faqueiro.jpeg`,
     description: `faqueiro`,
-    price: `1000 euros - 10 frações de 100 euros`,
+    price: `1000 euros - 5 frações de 200 euros`,
     href: `${hrefBasePath}?presente=Fracção%do%faqueiro`,
   },
 
   {
     image: `${imgPath}/apadador.jpeg`,
     description: `aparador`,
-    price: `1000 euros - 5 frações de 200 euros`,
+    price: `2000 euros - 10 frações de 200 euros`,
     href: `${hrefBasePath}?presente=Aparador`,
   },
 
