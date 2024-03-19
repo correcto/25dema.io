@@ -98,22 +98,27 @@ const galleryItems = [
     image: `${imgPath}/processador.jpeg`,
     description: `processador de alimentos`,
     price: `OFERECIDO`,
-    href: `${hrefBasePath}?presente=Processador%de%alimentos`,
   },
 
 ];
 
-// Function to create a gallery item
 function createGalleryItem(item) {
   // Create elements
   const itemDiv = document.createElement('div');
   itemDiv.className = 'gallery-item';
 
-  const link = document.createElement('a');
-  link.href = item.href;
-
   const img = document.createElement('img');
   img.src = item.image;
+
+  // Only create and append the link if the href is provided
+  if (item.href) {
+    const link = document.createElement('a');
+    link.href = item.href;
+    link.appendChild(img); // Append img to link
+    itemDiv.appendChild(link); // Then append link to itemDiv
+  } else {
+    itemDiv.appendChild(img); // If no href, just append img directly to itemDiv
+  }
 
   const description = document.createElement('p');
   description.textContent = item.description;
@@ -122,8 +127,6 @@ function createGalleryItem(item) {
   price.textContent = item.price;
 
   // Append elements
-  link.appendChild(img);
-  itemDiv.appendChild(link);
   itemDiv.appendChild(description);
   itemDiv.appendChild(price);
 
