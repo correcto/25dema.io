@@ -78,7 +78,7 @@ const galleryItems = [
   {
     image: `${imgPath}/sofa_cama.jpeg`,
     description: `sofá cama`,
-    price: `280 euros`,
+    price: `OFERECIDO`,
     href: `${hrefBasePath}?presente=Sofá cama`,
   },
   {
