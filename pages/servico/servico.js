@@ -97,7 +97,7 @@ const galleryItems = [
   {
     image: `${imgPath}/processador.jpeg`,
     description: `processador de alimentos`,
-    price: `255 euros`,
+    price: `OFERECIDO`,
     href: `${hrefBasePath}?presente=Processador%de%alimentos`,
   },
 
