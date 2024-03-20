@@ -307,9 +307,11 @@
         // Lógica para mostrar/esconder detalhes das restrições alimentares
         $('#attendance').change(function () {
           if ($(this).val() === 'yes') {
-            $('#foodRestrictionP').show().attr('required', true);
+            $('#foodRestrictionP').show();
+            $('#foodRestriction').attr('required', true);
           } else {
-            $('#foodRestrictionP').hide().removeAttr('required').val('');
+            $('#foodRestrictionP').hide();
+            $('#foodRestriction').removeAttr('required').val('');
             $('#foodDetails').hide().removeAttr('required').val(''); // Reset the textarea if foodRestriction is not 'yes'
           }
         });
