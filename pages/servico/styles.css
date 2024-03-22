@@ -23,6 +23,10 @@
   }
 }
 
+.offered-item img {
+  opacity: 0.6;
+}
+
 .gallery-item {
   display: flex;
   flex-direction: column;
