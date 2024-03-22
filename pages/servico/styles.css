@@ -23,7 +23,7 @@
   }
 }
 
-.offered-item img {
+.gallery-item.offered-item {
   opacity: 0.6;
 }
 
