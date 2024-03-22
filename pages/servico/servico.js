@@ -118,6 +118,11 @@ function createGalleryItem(item) {
     itemDiv.appendChild(img); // If no href, just append img directly to itemDiv
   }
 
+    // If the item is offered, add the 'offered-item' class to apply different styling
+  if (item.price === 'OFERECIDO') {
+    itemDiv.classList.add('offered-item'); // Or img.classList.add('offered-item') if you wish to apply to img only
+  }  
+
   const description = document.createElement('p');
   description.textContent = item.description;
 
