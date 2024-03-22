@@ -22,8 +22,8 @@ const galleryItems = [
   },
   {
     image: `${imgPath}/assadeira.jpeg`,
-    description: `2 assadeiras`,
-    price: `91 euros`,
+    description: `3 assadeiras`,
+    price: `136 euros`,
     href: `${hrefBasePath}?presente=Assadeiras`,
   },
   {
@@ -33,8 +33,8 @@ const galleryItems = [
   },
   {
     image: `${imgPath}/travessa.jpeg`,
-    description: `2 travessas`,
-    price: `70 euros`,
+    description: `3 travessas`,
+    price: `100 euros`,
     href: `${hrefBasePath}?presente=Travessas`,
   },
 
