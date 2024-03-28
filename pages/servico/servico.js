@@ -71,8 +71,7 @@ const galleryItems = [
   {
     image: `${imgPath}/cadeirao.png`,
     description: `poltrona`,
-    price: `300 euros`,
-    href: `${hrefBasePath}?presente=Cadeirão`,
+    price: `OFERECIDO`,
   },
   {
     image: `${imgPath}/sofa_cama.jpeg`,
