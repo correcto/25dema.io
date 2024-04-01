@@ -42,13 +42,13 @@ const galleryItems = [
     image: `${imgPath}/chavenas.jpeg`,
     description: `14 chavenas de café`,
     price: `193 euros`,
-    href: `${hrefBasePath}?presente=Chavenas%de%café`,
+    href: `${hrefBasePath}?presente=Chavenas%20de%20café`,
   },
   {
     image: `${imgPath}/servicocha.png`,
     description: `serviço chá 27 peças`,
     price: `450 euros`,
-    href: `${hrefBasePath}?presente=Serviço%de%chá`,
+    href: `${hrefBasePath}?presente=Serviço%20de%20chá`,
   },
   
   {
