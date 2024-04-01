@@ -44,20 +44,25 @@ const galleryItems = [
     price: `193 euros`,
     href: `${hrefBasePath}?presente=Chavenas%de%café`,
   },
-
+  {
+    image: `${imgPath}/servicocha.png`,
+    description: `serviço chá 27 peças`,
+    price: `450 euros`,
+    href: `${hrefBasePath}?presente=Serviço%de%chá`,
+  },
   
   {
     image: `${imgPath}/faqueiro.jpeg`,
     description: `faqueiro`,
     price: `1000 euros - 5 frações de 200 euros`,
-    href: `${hrefBasePath}?presente=Fracção%do%faqueiro`,
+    href: `${hrefBasePath}?presente=Contribuição%20para%20o%20faqueiro`,
   },
 
   {
     image: `${imgPath}/apadador.jpeg`,
     description: `aparador`,
     price: `2000 euros - 10 frações de 200 euros`,
-    href: `${hrefBasePath}?presente=Aparador`,
+    href: `${hrefBasePath}?presente=Contribuição%20para%20o%20aparador`,
   },
 
 
@@ -65,13 +70,20 @@ const galleryItems = [
     image: `${imgPath}/secretaria.jpg`,
     description: `secretária`,
     price: `1700 euros - 10 frações de 170 euros`,
-    href: `${hrefBasePath}?presente=Secretária`,
+    href: `${hrefBasePath}?presente=Contribuição%20para%20a%20secretária`,
   },
 
   {
     image: `${imgPath}/cadeirao.png`,
     description: `poltrona`,
     price: `OFERECIDO`,
+  },
+
+  {
+    image: `${imgPath}/tapete.png`,
+    description: `tapete`,
+    price: `400 euros`,
+    href: `${hrefBasePath}?presente=Tapete`,
   },
   {
     image: `${imgPath}/sofa_cama.jpeg`,
@@ -82,7 +94,7 @@ const galleryItems = [
     image: `${imgPath}/candeeiro.png`,
     description: `candeeiro de pé`,
     price: `685 euros - 5 frações de 137 euros`,
-    href: `${hrefBasePath}?presente=Candeeiro%20de%20pé`,
+    href: `${hrefBasePath}?presente=Contribuição%20para%20o20candeeiro%20de%20pé`,
   },
   {
     image: `${imgPath}/candeeiro_de_mesa.png`,
@@ -96,6 +108,15 @@ const galleryItems = [
     description: `processador de alimentos`,
     price: `OFERECIDO`,
   },
+  
+  {
+    image: `${imgPath}/tremcozinha.png`,
+    description: `trem de cozinha`,
+    price: `350 euros`,
+    href: `${hrefBasePath}?presente=Trem%20de%20cozinha`,
+  },
+
+
 
 ];
 
