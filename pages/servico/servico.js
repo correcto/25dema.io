@@ -53,7 +53,7 @@ const galleryItems = [
   
   {
     image: `${imgPath}/faqueiro.jpeg`,
-    description: `faqueiro`,
+    description: `faqueiro - 1 fração oferecida`,
     price: `1000 euros - 5 frações de 200 euros`,
     href: `${hrefBasePath}?presente=Contribuição%20para%20o%20faqueiro`,
   },
