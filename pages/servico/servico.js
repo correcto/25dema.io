@@ -65,6 +65,12 @@ const galleryItems = [
     href: `${hrefBasePath}?presente=Contribuição%20para%20o%20aparador`,
   },
 
+  {
+    image: `${imgPath}/mesajantar.png`,
+    description: `mesa de jantar`,
+    price: `1600 euros - 5 frações de 320 euros`,
+    href: `${hrefBasePath}?presente=Contribuição%20para%20a%20mesa%20de%20jantar`,
+  },
 
   {
     image: `${imgPath}/secretaria.jpg`,
