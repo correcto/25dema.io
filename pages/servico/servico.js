@@ -74,7 +74,7 @@ const galleryItems = [
 
   {
     image: `${imgPath}/secretaria.jpg`,
-    description: `secretária`,
+    description: `secretária - 3/10 oferecido`,
     price: `1700 euros - 10 frações de 170 euros`,
     href: `${hrefBasePath}?presente=Contribuição%20para%20a%20secretária`,
   },
