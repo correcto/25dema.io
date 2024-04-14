@@ -5,8 +5,7 @@ const galleryItems = [
   {
     image: `${imgPath}/prato_jantar.jpeg`,
     description: `14 pratos de jantar`,
-    price: `186 euros`,
-    href: `${hrefBasePath}?presente=Pratos%20de%20jantar`,
+    price: `OFERECIDO`,
   },
   {
     image: `${imgPath}/prato_sopa.jpeg`,
