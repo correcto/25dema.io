@@ -46,8 +46,7 @@ const galleryItems = [
   {
     image: `${imgPath}/servicocha.png`,
     description: `serviço chá 27 peças`,
-    price: `450 euros`,
-    href: `${hrefBasePath}?presente=Serviço%20de%20chá`,
+    price: OFERECIDO,
   },
   
   {
