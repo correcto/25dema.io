@@ -46,7 +46,7 @@ const galleryItems = [
   {
     image: `${imgPath}/servicocha.png`,
     description: `serviço chá 27 peças`,
-    price: OFERECIDO,
+    price: 'OFERECIDO',
   },
   
   {
