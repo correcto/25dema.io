@@ -33,8 +33,7 @@ const galleryItems = [
   {
     image: `${imgPath}/travessa.jpeg`,
     description: `3 travessas`,
-    price: `100 euros`,
-    href: `${hrefBasePath}?presente=Travessas`,
+    price: `OFERECIDO`,
   },
 
   {
