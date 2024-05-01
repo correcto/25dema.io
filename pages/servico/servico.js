@@ -95,7 +95,7 @@ const galleryItems = [
   },
   {
     image: `${imgPath}/candeeiro.png`,
-    description: `candeeiro de pé`,
+    description: `candeeiro de pé - 2/5 oferecido`,
     price: `685 euros - 5 frações de 137 euros`,
     href: `${hrefBasePath}?presente=Contribuição%20para%20o20candeeiro%20de%20pé`,
   },
