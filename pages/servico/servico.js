@@ -39,8 +39,7 @@ const galleryItems = [
   {
     image: `${imgPath}/chavenas.jpeg`,
     description: `14 chavenas de café`,
-    price: `193 euros`,
-    href: `${hrefBasePath}?presente=Chavenas%20de%20café`,
+    price: `OFERECIDO`,
   },
   {
     image: `${imgPath}/servicocha.png`,
