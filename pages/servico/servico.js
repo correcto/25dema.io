@@ -100,8 +100,7 @@ const galleryItems = [
   {
     image: `${imgPath}/candeeiro_de_mesa.png`,
     description: `candeeiro de mesa`,
-    price: `255 euros`,
-    href: `${hrefBasePath}?presente=Candeeiro%20de%20mesa`,
+    price: `OFERECIDO`,
   },
 
   {
