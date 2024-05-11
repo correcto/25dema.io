@@ -10,8 +10,7 @@ const galleryItems = [
   {
     image: `${imgPath}/prato_sopa.jpeg`,
     description: `14 pratos de sopa`,
-    price: `180 euros`,
-    href: `${hrefBasePath}?presente=Pratos%20de%20sopa`,
+    price: `OFERECIDO`,
   },
   {
     image: `${imgPath}/prato_sobremesa.jpeg`,
