@@ -55,7 +55,7 @@ const galleryItems = [
 
   {
     image: `${imgPath}/apadador.jpeg`,
-    description: `aparador`,
+    description: `aparador 1/10 oferecido',
     price: `2000 euros - 10 frações de 200 euros`,
     href: `${hrefBasePath}?presente=Contribuição%20para%20o%20aparador`,
   },
