@@ -110,8 +110,7 @@ const galleryItems = [
   {
     image: `${imgPath}/tremcozinha.png`,
     description: `trem de cozinha`,
-    price: `350 euros`,
-    href: `${hrefBasePath}?presente=Trem%20de%20cozinha`,
+    price: `OFERECIDO`,
   },
 
 
