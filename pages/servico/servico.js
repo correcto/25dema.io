@@ -15,8 +15,7 @@ const galleryItems = [
   {
     image: `${imgPath}/prato_sobremesa.jpeg`,
     description: `14 pratos de sobremesa`,
-    price: `160 euros`,
-    href: `${hrefBasePath}?presente=Pratos%20de%20sobremesa`,
+    price: `OFERECIDO`,
   },
   {
     image: `${imgPath}/assadeira.jpeg`,
