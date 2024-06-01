@@ -20,8 +20,7 @@ const galleryItems = [
   {
     image: `${imgPath}/assadeira.jpeg`,
     description: `3 assadeiras`,
-    price: `136 euros`,
-    href: `${hrefBasePath}?presente=Assadeiras`,
+    price: `OFERECIDO`,
   },
   {
     image: `${imgPath}/saladeira.jpeg`,
